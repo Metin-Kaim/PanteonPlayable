@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Game.Scripts.Signals;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -33,12 +32,44 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     [SerializeField] protected RectTransform background = null;
     [SerializeField] private RectTransform handle = null;
-    private RectTransform baseRect = null;
 
+    protected bool isInputEnable = true;
+
+    private RectTransform baseRect = null;
     private Canvas canvas;
     private Camera cam;
 
     private Vector2 input = Vector2.zero;
+
+    private void OnEnable()
+    {
+        InputSignals.Instance.onGetInput += OnGetInput;
+        InputSignals.Instance.onActivateInput += OnActivateInput;
+        InputSignals.Instance.onDeactivateInput += OnDeactivateInput;
+    }
+
+    protected virtual void OnDeactivateInput()
+    {
+        isInputEnable = false;
+    }
+
+    private void OnActivateInput()
+    {
+        isInputEnable = true;
+    }
+
+    private Vector2 OnGetInput()
+    {
+        if (!isInputEnable) return Vector2.zero;
+        
+        return Direction;
+    }
+    private void OnDisable()
+    {
+        InputSignals.Instance.onGetInput -= OnGetInput;
+        InputSignals.Instance.onActivateInput -= OnActivateInput;
+        InputSignals.Instance.onDeactivateInput -= OnDeactivateInput;
+    }
 
     protected virtual void Start()
     {
@@ -59,11 +90,15 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
+        if (!isInputEnable) return;
+
         OnDrag(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!isInputEnable) return;
+
         cam = null;
         if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
             cam = canvas.worldCamera;

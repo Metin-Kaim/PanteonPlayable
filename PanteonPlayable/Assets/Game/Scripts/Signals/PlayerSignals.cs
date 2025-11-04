@@ -4,10 +4,11 @@ using UnityEngine;
 
 namespace Assets.Game.Scripts.Signals
 {
-    public class DataSignals : MonoBehaviour
+    public class PlayerSignals : MonoBehaviour
     {
-        public static DataSignals Instance;
+        public static PlayerSignals Instance;
 
+        public Func<Vector3> onGetPlayerPosition;
 
         private void Awake()
         {

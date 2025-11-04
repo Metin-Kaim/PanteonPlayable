@@ -13,6 +13,8 @@ public class FloatingJoystick : Joystick
 
     public override void OnPointerDown(PointerEventData eventData)
     {
+        if (!isInputEnable) return;
+
         background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
         background.gameObject.SetActive(true);
         base.OnPointerDown(eventData);
@@ -20,7 +22,18 @@ public class FloatingJoystick : Joystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        background.gameObject.SetActive(false);
+        CloseBackground();
         base.OnPointerUp(eventData);
+    }
+
+    protected override void OnDeactivateInput()
+    {
+        base.OnDeactivateInput();
+        CloseBackground();
+    }
+
+    private void CloseBackground()
+    {
+        background.gameObject.SetActive(false);
     }
 }
