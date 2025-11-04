@@ -30,6 +30,11 @@ namespace Assets.Game.Scripts.Controllers
                 Vector3 move = transform.forward * moveSpeed * Time.fixedDeltaTime;
                 _rb.MovePosition(_rb.position + move);
             }
+            else
+            {
+                _rb.velocity = Vector3.zero;
+                _rb.angularVelocity = Vector3.zero;
+            }
         }
     }
 }

@@ -99,6 +99,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     {
         if (!isInputEnable) return;
 
+        if (!background.gameObject.activeSelf)
+        {
+            OnPointerDown(eventData);
+        }
+
         cam = null;
         if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
             cam = canvas.worldCamera;
