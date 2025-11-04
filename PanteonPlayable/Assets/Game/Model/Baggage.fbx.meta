@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Atlas_Texture.001
-    second: {fileID: 2100000, guid: 52043660086dc194d8413d076f59b2df, type: 2}
+    second: {fileID: 2100000, guid: e38e38c28913d3c4eadd89051683199b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
