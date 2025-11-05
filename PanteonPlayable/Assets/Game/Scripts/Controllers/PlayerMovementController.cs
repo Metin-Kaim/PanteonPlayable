@@ -27,7 +27,7 @@ namespace Assets.Game.Scripts.Controllers
 
                 _rb.MoveRotation(Quaternion.Slerp(_rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime));
 
-                Vector3 move = transform.forward * moveSpeed * Time.fixedDeltaTime;
+                Vector3 move = moveSpeed * Time.fixedDeltaTime * transform.forward;
                 _rb.MovePosition(_rb.position + move);
             }
             else

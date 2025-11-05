@@ -2,7 +2,6 @@
 using Assets.Game.Scripts.Controllers;
 using Assets.Game.Scripts.Signals;
 using DG.Tweening;
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -101,6 +100,7 @@ namespace Assets.Game.Scripts.Handlers
             }
             fillBar.fillAmount = 1;
             fillBarCoroutine = null;
+
             UnlockTheObjects();
 
             CameraSignals.Instance.onMoveToTarget.Invoke();

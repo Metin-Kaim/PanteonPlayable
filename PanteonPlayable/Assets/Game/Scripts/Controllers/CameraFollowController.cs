@@ -10,7 +10,7 @@ namespace Assets.Game.Scripts.Controllers
         [SerializeField] private float moveToTargetDuration = 1;
 
         private Vector3 _followOffset;
-        private bool _canFollow;
+        private bool _canFollow = true;
         private Vector3 lastPosition;
         private Vector3 lastRotationAngles;
 
@@ -51,6 +51,7 @@ namespace Assets.Game.Scripts.Controllers
             transform.DOMove(lastPosition, moveToTargetDuration).SetEase(Ease.Linear).OnComplete(() =>
             {
                 InputSignals.Instance.onActivateInput.Invoke();
+                _canFollow = true;
             });
             transform.DORotate(lastRotationAngles, moveToTargetDuration).SetEase(Ease.Linear);
         }
