@@ -62,15 +62,20 @@ namespace Assets.Game.Scripts.Controllers
 
         public void GiveBaggageToPlayer()
         {
-            Vector3 offset = PlayerSignals.Instance.onGetPlayerBaggagePoint.Invoke();
-            PlayerSignals.Instance.onAddBaggage.Invoke(baggage);
+            if (baggage == null) return;
 
-            baggage.transform.DOLocalJump(offset, 3, 1, .4f).OnComplete(() =>
+            Transform tempBaggage = baggage;
+            baggage = null;
+
+            Vector3 offset = PlayerSignals.Instance.onGetPlayerBaggagePoint.Invoke();
+            PlayerSignals.Instance.onAddBaggage.Invoke(tempBaggage);
+
+            tempBaggage.transform.DOLocalJump(offset, 3, 1, .4f).OnComplete(() =>
             {
-                baggage.transform.localPosition = offset;
+                tempBaggage.transform.localPosition = offset;
                 Move();
             });
-            baggage.transform.DOLocalRotate(Vector3.forward * 90, .4f);
+            tempBaggage.transform.DOLocalRotate(Vector3.forward * 90, .4f);
         }
     }
 }

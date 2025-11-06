@@ -5,10 +5,11 @@ using System.Linq;
 using System;
 using System.Collections;
 using UnityEngine.Events;
+using Assets.Game.Scripts.Abstract;
 
 namespace Assets.Game.Scripts.Controllers
 {
-    public class PassengerManager : MonoBehaviour
+    public class PassengerManager : MonoBehaviour, ITrigger
     {
         [SerializeField] private byte passengerCount;
         [SerializeField] private Transform passengerLineStartPoint;
@@ -20,7 +21,10 @@ namespace Assets.Game.Scripts.Controllers
 
         private List<PassengerMovementController> _passengerList;
         private List<PassengerMovementController> _passengerListWithBaggage;
-        [SerializeField] private List<PassengerMovementController> _passengerListWithoutBaggage;
+        private List<PassengerMovementController> _passengerListWithoutBaggage;
+        private bool _isTriggering;
+        private Coroutine _coroutineWithBaggage;
+        private Coroutine _coroutineWithoutBaggage;
 
         public List<PhasePoint> phasePoints;
 
@@ -46,7 +50,12 @@ namespace Assets.Game.Scripts.Controllers
         {
             if (_passengerListWithBaggage.Count == 0) return;
 
-            StartCoroutine(IMoveTheLineOfPassengersWithBaggage());
+            //if (_coroutineWithBaggage != null)
+            //{
+            //    StopCoroutine(_coroutineWithBaggage);
+            //}
+
+            _coroutineWithBaggage ??= StartCoroutine(IMoveTheLineOfPassengersWithBaggage());
         }
 
         public IEnumerator IMoveTheLineOfPassengersWithBaggage()
@@ -54,9 +63,9 @@ namespace Assets.Game.Scripts.Controllers
             PassengerMovementController firstPass = _passengerListWithBaggage[0];
             _passengerListWithBaggage.Remove(firstPass);
             firstPass.GiveBaggageToPlayer();
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(.5f);
 
-            while (_passengerListWithBaggage.Count > 0)
+            do
             {
                 for (int i = 0; i < _passengerListWithBaggage.Count; i++)
                 {
@@ -67,7 +76,7 @@ namespace Assets.Game.Scripts.Controllers
                     int i1 = i;
                     pass.transform.DOMove(targetPos, .5f).SetEase(Ease.Linear).OnComplete(() =>
                     {
-                        if (i1 == 0)
+                        if (i1 == 0 && _isTriggering)
                         {
                             _passengerListWithBaggage.Remove(pass);
                             pass.GiveBaggageToPlayer();
@@ -77,8 +86,11 @@ namespace Assets.Game.Scripts.Controllers
                     //yield return null;
                 }
 
-                yield return new WaitForSeconds(1f);
-            }
+                yield return new WaitForSeconds(_isTriggering ? .9f : 0);
+
+            } while (_passengerListWithBaggage.Count > 0 && _isTriggering);
+
+            _coroutineWithBaggage = null;
         }
 
         public void AddObj(PassengerMovementController passengerMovementController)
@@ -86,6 +98,15 @@ namespace Assets.Game.Scripts.Controllers
             _passengerListWithoutBaggage.Add(passengerMovementController);
         }
 
+        public void TriggerEnter()
+        {
+            _isTriggering = true;
+        }
+
+        public void TriggerExit()
+        {
+            _isTriggering = false;
+        }
     }
 
     [Serializable]

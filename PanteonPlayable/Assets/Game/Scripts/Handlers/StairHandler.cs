@@ -16,8 +16,6 @@ namespace Assets.Game.Scripts.Handlers
         [SerializeField] private byte stepCount;
         [SerializeField] private float moveSpeed = 1;
         [SerializeField] private float playerWaitingDuration = 1;
-        [SerializeField] private Collider triggerCollider;
-        [SerializeField] private Collider stairCollider;
 
         [Header("RunTime Variables")]
         [SerializeField] private List<GameObject> stairSteps;
@@ -88,8 +86,6 @@ namespace Assets.Game.Scripts.Handlers
         {
             yield return new WaitForSeconds(playerWaitingDuration);
 
-            triggerCollider.enabled = false;
-            stairCollider.enabled = false;
             _stairCoroutine = null;
 
             _stepOfPlayer = lastUsedStep;
@@ -101,9 +97,6 @@ namespace Assets.Game.Scripts.Handlers
 
         public void ReleaseThePlayer()
         {
-            triggerCollider.enabled = true;
-            stairCollider.enabled = true;
-
             PlayerSignals.Instance.onResetPlayerParent.Invoke();
             PlayerSignals.Instance.onOpenPlayerCollider.Invoke();
             InputSignals.Instance.onActivateInput.Invoke();

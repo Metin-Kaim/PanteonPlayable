@@ -654,8 +654,6 @@ MonoBehaviour:
   stepCount: 20
   moveSpeed: 2
   playerWaitingDuration: 1
-  triggerCollider: {fileID: 0}
-  stairCollider: {fileID: 0}
   stairSteps: []
   lastUsedStep: {fileID: 0}
 --- !u!65 &224817484
@@ -1785,7 +1783,7 @@ Transform:
   m_GameObject: {fileID: 1016251426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.346, y: 1.04, z: 11.763}
+  m_LocalPosition: {x: -8.346, y: 1.07, z: 11.763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2362,12 +2360,12 @@ PrefabInstance:
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
@@ -2398,7 +2396,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1307175645}
+      objectReference: {fileID: 1220201505}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -2412,7 +2410,7 @@ PrefabInstance:
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TriggerExitWithBaggage
+      value: TriggerExit
       objectReference: {fileID: 0}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
@@ -2421,12 +2419,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TriggerEnter
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
       propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Assets.Game.Scripts.Controllers.PassengerController, Assembly-CSharp
+      value: Assets.Game.Scripts.Controllers.PassengerManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Assets.Game.Scripts.Controllers.PassengerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: Assets.Game.Scripts.Controllers.PassengerManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
@@ -2720,7 +2728,6 @@ MonoBehaviour:
   eachPassengerPositionOffset2: {x: 0, y: 0, z: 2}
   passengerPrefab: {fileID: 7452904667812567361, guid: 105778ee0598ff043a5b46560aeb1161,
     type: 3}
-  _passengerListWithoutBaggage: []
   phasePoints:
   - points:
     - {fileID: 652596551}
@@ -5113,7 +5120,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1307175645}
+      objectReference: {fileID: 79368300}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5123,7 +5130,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1307175645}
+      objectReference: {fileID: 79368300}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -6052,8 +6059,6 @@ MonoBehaviour:
   stepCount: 20
   moveSpeed: 2
   playerWaitingDuration: 1
-  triggerCollider: {fileID: 0}
-  stairCollider: {fileID: 0}
   stairSteps: []
   lastUsedStep: {fileID: 0}
 --- !u!65 &7926891382478119056

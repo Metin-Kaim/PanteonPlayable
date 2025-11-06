@@ -33,6 +33,8 @@ namespace Assets.Game.Scripts.Managers
 
         private void OnAddBaggage(Transform baggage)
         {
+            if (baggages.Contains(baggage)) return;
+
             baggage.SetParent(baggagePoint.transform);
             baggages.Add(baggage);
         }
