@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,6 +17,7 @@ namespace Assets.Game.Scripts.Signals
         public UnityAction onOpenPlayerCollider;
         public Func<Vector3> onGetPlayerBaggagePoint;
         public UnityAction<Transform> onAddBaggage;
+        public Func<List<Transform>> onGetAllBaggages;
 
         private void Awake()
         {

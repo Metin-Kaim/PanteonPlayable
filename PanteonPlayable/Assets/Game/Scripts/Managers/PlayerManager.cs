@@ -2,6 +2,7 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.Managers
@@ -29,6 +30,14 @@ namespace Assets.Game.Scripts.Managers
             PlayerSignals.Instance.onOpenPlayerCollider += OnOpenPlayerCollider;
             PlayerSignals.Instance.onGetPlayerBaggagePoint += OnGetPlayerBaggagePoint;
             PlayerSignals.Instance.onAddBaggage += OnAddBaggage;
+            PlayerSignals.Instance.onGetAllBaggages += OnGetAllBaggages;
+        }
+
+        private List<Transform> OnGetAllBaggages()
+        {
+            List<Transform> newBaggages = baggages.ToList();
+            baggages.Clear();
+            return newBaggages;
         }
 
         private void OnAddBaggage(Transform baggage)
@@ -78,6 +87,7 @@ namespace Assets.Game.Scripts.Managers
             PlayerSignals.Instance.onOpenPlayerCollider -= OnOpenPlayerCollider;
             PlayerSignals.Instance.onGetPlayerBaggagePoint -= OnGetPlayerBaggagePoint;
             PlayerSignals.Instance.onAddBaggage -= OnAddBaggage;
+            PlayerSignals.Instance.onGetAllBaggages -= OnGetAllBaggages;
         }
     }
 }

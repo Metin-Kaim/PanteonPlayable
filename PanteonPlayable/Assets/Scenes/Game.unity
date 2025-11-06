@@ -288,6 +288,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38340288}
   m_CullTransparentMesh: 1
+--- !u!1 &66980826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 66980827}
+  m_Layer: 0
+  m_Name: BaggagePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &66980827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66980826}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.501, z: 0.892}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 268819707028886143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &79368295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,7 +1131,12 @@ PrefabInstance:
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
@@ -1116,12 +1152,32 @@ PrefabInstance:
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2282012415565479541}
+      objectReference: {fileID: 5788512396436347104}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1307175645}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveBaggagesToCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Assets.Game.Scripts.Controllers.BaggageCheckController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2494941194375245410, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1195,7 +1251,7 @@ PrefabInstance:
     - target: {fileID: 9118339591714744434, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1308,6 +1364,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &654824332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 654824333}
+  m_Layer: 0
+  m_Name: PlatformPointToJump
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &654824333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654824332}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000059604645, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.10153949, y: 0.7107771, z: 0.114232235}
+  m_LocalScale: {x: 1.2692449, y: 1.2692449, z: 1.2692449}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3184448490887135001}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &667214794
 GameObject:
@@ -2610,6 +2697,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165599208}
   m_Mesh: {fileID: 7004298494751842494, guid: 22c6fd6cdbb3f5f42ab822874d6b6f97, type: 3}
+--- !u!1 &1167277999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167278000}
+  m_Layer: 0
+  m_Name: ConveyorLineEndPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1167278000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167277999}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.38, y: 0.912, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5089127481708868301}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1175224939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,6 +3296,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7391129913370635166}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1394770592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1394770593}
+  m_Layer: 0
+  m_Name: CarArrivePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1394770593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394770592}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -25.53}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 268819707028886143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1409326932
 GameObject:
   m_ObjectHideFlags: 0
@@ -3668,13 +3817,23 @@ PrefabInstance:
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2282012415565479541}
+      objectReference: {fileID: 0}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -3684,12 +3843,52 @@ PrefabInstance:
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2282012415565479541}
+      objectReference: {fileID: 5788512396436347104}
     - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1307175645}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TriggerEnterToStackBaggages
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Assets.Game.Scripts.Controllers.BaggageCheckController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 204724740032673280, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2494941194375245410, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3763,13 +3962,44 @@ PrefabInstance:
     - target: {fileID: 9118339591714744434, guid: ae3ad69f0d90d064ba6a817c8003f9a2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3ad69f0d90d064ba6a817c8003f9a2, type: 3}
+--- !u!1 &1634367638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1634367639}
+  m_Layer: 0
+  m_Name: BaggagePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1634367639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634367638}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.726, y: 0.912, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5089127481708868301}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724685023
 GameObject:
   m_ObjectHideFlags: 0
@@ -4353,6 +4583,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1878896788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1878896789}
+  m_Layer: 0
+  m_Name: BaggagePlanePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1878896789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878896788}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5299988, y: 1.259998, z: -2.2200012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4324961557735577299}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1949216195
 GameObject:
   m_ObjectHideFlags: 0
@@ -4514,7 +4775,9 @@ Transform:
   m_LocalPosition: {x: 23.54, y: 6.93, z: 20.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 66980827}
+  - {fileID: 1394770593}
   m_Father: {fileID: 1348151374}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &532282423518296942
@@ -4606,6 +4869,7 @@ GameObject:
   - component: {fileID: 268819707028886143}
   - component: {fileID: 3871112190770245394}
   - component: {fileID: 7527966160116144590}
+  - component: {fileID: 7527966160116144591}
   m_Layer: 0
   m_Name: BaggageTruck
   m_TagString: Untagged
@@ -5068,6 +5332,7 @@ GameObject:
   - component: {fileID: 5788512396436347103}
   - component: {fileID: 5788512396436347102}
   - component: {fileID: 5788512396436347101}
+  - component: {fileID: 5788512396436347104}
   m_Layer: 0
   m_Name: Device1
   m_TagString: Untagged
@@ -5282,7 +5547,8 @@ Transform:
   m_LocalPosition: {x: 9.763248, y: 2.245451, z: -6.3234158}
   m_LocalScale: {x: 0.78787, y: 0.78787, z: 0.78787}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 654824333}
   m_Father: {fileID: 1267962516195935886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3785702221042480131
@@ -5387,7 +5653,8 @@ Transform:
   m_LocalPosition: {x: 37.15, y: 6.93, z: -5.3899994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1878896789}
   m_Father: {fileID: 1348151374}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4337884686852244975
@@ -5431,7 +5698,9 @@ Transform:
   m_LocalPosition: {x: 3.4332485, y: 1.5854509, z: -6.2334156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1634367639}
+  - {fileID: 1167278000}
   m_Father: {fileID: 1267962516195935886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5118736639395268277
@@ -5625,6 +5894,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.8898585, y: 2.6773849, z: 3.3667634}
   m_Center: {x: 0.0843209, y: 1.347183, z: 0.5405401}
+--- !u!114 &5788512396436347104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2611846945489731104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b9eac49cdd5a7488e7b5e4286659ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baggageStackPoint: {fileID: 1634367639}
+  baggageStackOffset: {x: 0, y: 0.3, z: 0}
+  carBaggagePoint: {fileID: 66980827}
+  conveyorLineEndPoint: {fileID: 1167278000}
+  platformPointToJump: {fileID: 654824333}
+  platform: {fileID: 3184448490887135001}
 --- !u!23 &5849728213495678345
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5919,6 +6206,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7527966160116144591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755976129107062060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3971cf0bd7295834ab54d205fafd4f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baggageStackPoint: {fileID: 66980827}
+  carArrivePoint: {fileID: 1394770593}
+  baggagePlanePoint: {fileID: 1878896789}
 --- !u!23 &7703153316401496202
 MeshRenderer:
   m_ObjectHideFlags: 0

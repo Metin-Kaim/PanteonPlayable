@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using UnityEngine.Events;
 using Assets.Game.Scripts.Abstract;
+using Assets.Game.Scripts.Signals;
 
 namespace Assets.Game.Scripts.Controllers
 {
@@ -63,7 +64,7 @@ namespace Assets.Game.Scripts.Controllers
             PassengerMovementController firstPass = _passengerListWithBaggage[0];
             _passengerListWithBaggage.Remove(firstPass);
             firstPass.GiveBaggageToPlayer();
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.3f);
 
             do
             {
@@ -74,7 +75,7 @@ namespace Assets.Game.Scripts.Controllers
                     Vector3 targetPos = passengerLineStartPoint.position + i * eachPassengerPositionOffset;
 
                     int i1 = i;
-                    pass.transform.DOMove(targetPos, .5f).SetEase(Ease.Linear).OnComplete(() =>
+                    pass.transform.DOMove(targetPos, .3f).SetEase(Ease.Linear).OnComplete(() =>
                     {
                         if (i1 == 0 && _isTriggering)
                         {
@@ -86,7 +87,7 @@ namespace Assets.Game.Scripts.Controllers
                     //yield return null;
                 }
 
-                yield return new WaitForSeconds(_isTriggering ? .9f : 0);
+                yield return new WaitForSeconds(_isTriggering ? .6f : 0);
 
             } while (_passengerListWithBaggage.Count > 0 && _isTriggering);
 
