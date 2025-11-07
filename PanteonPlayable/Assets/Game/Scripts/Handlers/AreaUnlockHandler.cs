@@ -1,5 +1,4 @@
-﻿using Assets.Game.Scripts.Abstract;
-using Assets.Game.Scripts.Controllers;
+﻿using Assets.Game.Scripts.Controllers;
 using Assets.Game.Scripts.Signals;
 using DG.Tweening;
 using System.Collections;
@@ -19,13 +18,12 @@ namespace Assets.Game.Scripts.Handlers
         [SerializeField] private float closeThisObjectDuration;
 
         [Header("Unlock Settings")]
-        [SerializeField] private TriggerController triggerController;
         [SerializeField] private GameObject[] objectsToOpen;
         [SerializeField] private GameObject[] objectsToOpenWithDelay;
         [SerializeField] private float delay;
         [SerializeField] private float openingDuration;
+        [SerializeField] private Transform camViewPoint;
 
-        private Coroutine fillBarCoroutine;
         private short _currentCurrencyCost;
         private short _fillCycleCount = 0;
 
@@ -64,22 +62,19 @@ namespace Assets.Game.Scripts.Handlers
             }
         }
 
-        public void TriggerEnter()
+        public void TriggerEnter(Transform triggerController)
         {
-            fillBarCoroutine = StartCoroutine(FillTheBar());
+            InputSignals.Instance.onDeactivateInput.Invoke();
+
+            StartCoroutine(FillTheBar(triggerController));
         }
 
         public void TriggerExit()
         {
-            if (_fillCycleCount >= currencyCost) return;
-
-            if (fillBarCoroutine != null)
-            {
-                StopCoroutine(fillBarCoroutine);
-            }
+            OnBarFilled();
         }
 
-        private IEnumerator FillTheBar()
+        private IEnumerator FillTheBar(Transform triggerController)
         {
             while (fillBar.fillAmount < 1f)
             {
@@ -98,15 +93,17 @@ namespace Assets.Game.Scripts.Handlers
 
                 yield return new WaitForSeconds(fillDuration);
             }
-            fillBar.fillAmount = 1;
-            fillBarCoroutine = null;
-
-            UnlockTheObjects();
-
-            CameraSignals.Instance.onMoveToTarget.Invoke();
-            InputSignals.Instance.onDeactivateInput.Invoke();
 
             triggerController.gameObject.SetActive(false);
+        }
+
+        private void OnBarFilled()
+        {
+            fillBar.fillAmount = 1;
+
+            CameraSignals.Instance.onMoveToTarget.Invoke(camViewPoint);
+            UnlockTheObjects();
+
 
             transform.DOScale(0, closeThisObjectDuration).SetEase(Ease.OutBack).OnComplete(() =>
             {

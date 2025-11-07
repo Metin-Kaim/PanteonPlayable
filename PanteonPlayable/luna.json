@@ -28402,6 +28402,10 @@
                     {
                         "name": "MoveBaggagesToCar",
                         "excluded": false
+                    },
+                    {
+                        "name": "TriggerExit",
+                        "excluded": false
                     }
                 ]
             },
@@ -28436,6 +28440,14 @@
                     {
                         "name": "BackToBase",
                         "excluded": false
+                    },
+                    {
+                        "name": "LockCamFollow",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UnlockCamFollow",
+                        "excluded": false
                     }
                 ]
             },
@@ -28462,19 +28474,11 @@
                 "staticMethods": [],
                 "instanceMethods": [
                     {
-                        "name": "PassengerOffsetWithoutBaggage#get",
-                        "excluded": false
-                    },
-                    {
                         "name": "init",
                         "excluded": false
                     },
                     {
                         "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MoveTheLineOfPassengersWithBaggage",
                         "excluded": false
                     },
                     {
@@ -28490,7 +28494,15 @@
                         "excluded": false
                     },
                     {
-                        "name": "AddObj",
+                        "name": "PassengerOffsetWithoutBaggage",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TriggerEnterWithBaggage",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TriggerExit",
                         "excluded": false
                     }
                 ]
@@ -28544,7 +28556,7 @@
                         "excluded": false
                     },
                     {
-                        "name": "OnTriggerExit",
+                        "name": "OnDisable",
                         "excluded": false
                     }
                 ]
@@ -28575,10 +28587,14 @@
                     },
                     {
                         "name": "TriggerExit",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "FillTheBar",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnBarFilled",
                         "excluded": false
                     }
                 ]

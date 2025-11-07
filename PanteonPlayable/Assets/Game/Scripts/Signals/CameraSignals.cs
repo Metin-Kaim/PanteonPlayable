@@ -7,7 +7,7 @@ namespace Assets.Game.Scripts.Signals
     {
         public static CameraSignals Instance;
 
-        public UnityAction onMoveToTarget;
+        public UnityAction<Transform> onMoveToTarget;
         public UnityAction onBackToBase;
 
         private void Awake()

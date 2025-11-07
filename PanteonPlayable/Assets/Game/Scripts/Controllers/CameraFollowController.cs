@@ -6,7 +6,6 @@ namespace Assets.Game.Scripts.Controllers
 {
     public class CameraFollowController : MonoBehaviour
     {
-        [SerializeField] Transform target;
         [SerializeField] private float moveToTargetDuration = 1;
 
         private Vector3 _followOffset;
@@ -35,20 +34,9 @@ namespace Assets.Game.Scripts.Controllers
             if (_canFollow)
                 transform.position = PlayerSignals.Instance.onGetPlayerPosition.Invoke() + _followOffset;
         }
-
-        private void MoveToTarget()
-        {
-            _canFollow = false;
-
-            lastPosition = transform.position;
-            lastRotationAngles = transform.rotation.eulerAngles;
-
-            transform.DOMove(target.position, moveToTargetDuration).SetEase(Ease.Linear);
-            transform.DORotate(target.rotation.eulerAngles, moveToTargetDuration).SetEase(Ease.Linear);
-        }
         public void MoveToTarget(Transform target)
         {
-            _canFollow = false;
+            LockCamFollow();
 
             lastPosition = transform.position;
             lastRotationAngles = transform.rotation.eulerAngles;
@@ -61,9 +49,18 @@ namespace Assets.Game.Scripts.Controllers
             transform.DOMove(lastPosition, moveToTargetDuration).SetEase(Ease.Linear).OnComplete(() =>
             {
                 InputSignals.Instance.onActivateInput.Invoke();
-                _canFollow = true;
+                UnlockCamFollow();
             });
             transform.DORotate(lastRotationAngles, moveToTargetDuration).SetEase(Ease.Linear);
+        }
+
+        public void LockCamFollow()
+        {
+            _canFollow = false;
+        }
+        public void UnlockCamFollow()
+        {
+            _canFollow = true;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Assets.Game.Scripts.Signals;
 using DG.Tweening;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +29,8 @@ namespace Assets.Game.Scripts.Controllers
 
             if (phasePoint.adaptive)
             {
-                positions[positions.Count - 1] += passengerManager.PassengerOffsetWithoutBaggage;
+                Vector3 newPos = passengerManager.PassengerOffsetWithoutBaggage(this);
+                positions[positions.Count - 1] += newPos;
             }
 
             phasePoint.itinialAction?.Invoke(this);
@@ -39,7 +39,7 @@ namespace Assets.Game.Scripts.Controllers
             {
                 Vector3 direction = (positions[phasePointIndex] - transform.position).normalized;
 
-                transform.position += direction * phasePoint.speed * Time.deltaTime;
+                transform.position += phasePoint.speed * Time.deltaTime * direction;
 
                 if (Mathf.Abs(Vector3.Distance(transform.position, positions[phasePointIndex])) < 0.05f)
                 {
@@ -58,6 +58,10 @@ namespace Assets.Game.Scripts.Controllers
             {
                 Move();
             }
+            if (phaseNumber == phasePoints.Count - 1)
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         public void GiveBaggageToPlayer()
@@ -70,7 +74,7 @@ namespace Assets.Game.Scripts.Controllers
             Vector3 offset = PlayerSignals.Instance.onGetPlayerBaggagePoint.Invoke();
             PlayerSignals.Instance.onAddBaggage.Invoke(tempBaggage);
 
-            tempBaggage.transform.DOLocalJump(offset, 3, 1, .3f).SetEase(Ease.Linear).OnComplete(() =>
+            tempBaggage.transform.DOLocalJump(offset, 3, 1, .1f).SetEase(Ease.Linear).OnComplete(() =>
             {
                 tempBaggage.transform.localPosition = offset;
                 Move();

@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using UnityEngine.Events;
+using Assets.Game.Scripts.Signals;
 
 namespace Assets.Game.Scripts.Controllers
 {
@@ -17,18 +18,20 @@ namespace Assets.Game.Scripts.Controllers
         [SerializeField] private PassengerMovementController passengerPrefab;
 
         private List<PassengerMovementController> _passengerList;
-        private List<PassengerMovementController> _passengerListWithBaggage;
-        private List<PassengerMovementController> _passengerListWithoutBaggage;
 
         public List<PhasePoint> phasePoints;
 
-        public Vector3 PassengerOffsetWithoutBaggage => _passengerListWithoutBaggage.Count * eachPassengerPositionOffset2;
+        public Vector3 PassengerOffsetWithoutBaggage(PassengerMovementController pass)
+        {
+            int index = _passengerList.IndexOf(pass);
+
+            return index * eachPassengerPositionOffset2;
+
+        }
 
         private void Awake()
         {
             _passengerList = new List<PassengerMovementController>();
-            _passengerListWithBaggage = new List<PassengerMovementController>();
-            _passengerListWithoutBaggage = new List<PassengerMovementController>();
 
             for (int i = 0; i < passengerCount; i++)
             {
@@ -36,93 +39,73 @@ namespace Assets.Game.Scripts.Controllers
                 passenger.phasePoints = new List<PhasePoint>(phasePoints);
                 passenger.passengerManager = this;
                 _passengerList.Add(passenger);
-                _passengerListWithBaggage.Add(passenger);
             }
         }
 
-        public void MoveTheLineOfPassengersWithBaggage()
+        public void TriggerEnterWithBaggage(Transform triggerController)
         {
-            if (_passengerListWithBaggage.Count == 0) return;
-
-            StartCoroutine(IMoveTheLineOfPassengersWithBaggage());
+            InputSignals.Instance.onDeactivateInput.Invoke();
+            StartCoroutine(IMoveTheLineOfPassengersWithBaggage(triggerController));
+        }
+        public void TriggerExit()
+        {
+            InputSignals.Instance.onActivateInput.Invoke();
         }
 
-        public IEnumerator IMoveTheLineOfPassengersWithBaggage()
+        public IEnumerator IMoveTheLineOfPassengersWithBaggage(Transform triggerController)
         {
-            PassengerMovementController firstPass = _passengerListWithBaggage[0];
-            _passengerListWithBaggage.Remove(firstPass);
-            firstPass.GiveBaggageToPlayer();
-            yield return new WaitForSeconds(.3f);
-
-            do
+            int passIndex = 0;
+            while (passIndex < _passengerList.Count)
             {
-                for (int i = 0; i < _passengerListWithBaggage.Count; i++)
+                PassengerMovementController firstPass = _passengerList[passIndex];
+                firstPass.GiveBaggageToPlayer();
+
+                passIndex++;
+
+                for (int i = 0; i < _passengerList.Count - passIndex; i++)
                 {
-                    PassengerMovementController pass = _passengerListWithBaggage[i];
+                    PassengerMovementController pass = _passengerList[i + passIndex];
 
                     Vector3 targetPos = passengerLineStartPoint.position + i * eachPassengerPositionOffset;
 
-                    int i1 = i;
-                    pass.transform.DOMove(targetPos, .3f).SetEase(Ease.Linear).OnComplete(() =>
-                    {
-                        if (i1 == 0)
-                        {
-                            _passengerListWithBaggage.Remove(pass);
-                            pass.GiveBaggageToPlayer();
-                        }
-                    });
-
-                    //yield return null;
+                    pass.transform.DOMove(targetPos, .3f).SetEase(Ease.Linear);
                 }
 
-                yield return new WaitForSeconds(.6f);
+                yield return new WaitForSeconds(.5f);
+            }
 
-            } while (_passengerListWithBaggage.Count > 0);
+            triggerController.gameObject.SetActive(false);
         }
 
-        public void MoveTheLineOfPassengersWithoutBaggage()
+        public void MoveTheLineOfPassengersWithoutBaggage(Transform triggerController)
         {
-            if (_passengerListWithoutBaggage.Count == 0) return;
-
-            StartCoroutine(IMoveTheLineOfPassengersWithoutBaggage());
+            InputSignals.Instance.onDeactivateInput.Invoke();
+            StartCoroutine(IMoveTheLineOfPassengersWithoutBaggage(triggerController));
         }
 
-        public IEnumerator IMoveTheLineOfPassengersWithoutBaggage()
+        public IEnumerator IMoveTheLineOfPassengersWithoutBaggage(Transform triggerController)
         {
-            PassengerMovementController firstPass = _passengerListWithoutBaggage[0];
-            _passengerListWithoutBaggage.Remove(firstPass);
-            firstPass.Move();
-            yield return new WaitForSeconds(.3f);
-
-            do
+            int passIndex = 0;
+            while (passIndex < _passengerList.Count)
             {
-                for (int i = 0; i < _passengerListWithoutBaggage.Count; i++)
+                PassengerMovementController firstPass = _passengerList[passIndex];
+                firstPass.Move();
+
+                passIndex++;
+
+                for (int i = 0; i < _passengerList.Count - passIndex; i++)
                 {
-                    PassengerMovementController pass = _passengerListWithoutBaggage[i];
+                    PassengerMovementController pass = _passengerList[i + passIndex];
 
                     Vector3 targetPos = passengerLineStartPoint2.position + i * eachPassengerPositionOffset2;
 
-                    int i1 = i;
-                    pass.transform.DOMove(targetPos, .3f).SetEase(Ease.Linear).OnComplete(() =>
-                    {
-                        if (i1 == 0)
-                        {
-                            _passengerListWithoutBaggage.Remove(pass);
-                            pass.Move();
-                        }
-                    });
-
-                    //yield return null;
+                    pass.transform.DOMove(targetPos, .3f).SetEase(Ease.Linear);
                 }
 
-                yield return new WaitForSeconds(.3f);
+                yield return new WaitForSeconds(.6f);
+            }
 
-            } while (_passengerListWithoutBaggage.Count > 0);
-        }
-
-        public void AddObj(PassengerMovementController passengerMovementController)
-        {
-            _passengerListWithoutBaggage.Add(passengerMovementController);
+            triggerController.gameObject.SetActive(false);
         }
     }
 

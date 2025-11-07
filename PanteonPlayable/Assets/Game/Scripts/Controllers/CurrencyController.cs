@@ -2,7 +2,7 @@ using Assets.Game.Scripts.Signals;
 using TMPro;
 using UnityEngine;
 
-public class CurrencyController : MonoBehaviour/*, ITrigger*/
+public class CurrencyController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] short initialCurrency = 50;

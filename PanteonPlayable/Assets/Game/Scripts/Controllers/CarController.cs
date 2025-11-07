@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using System.Collections;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.Controllers
@@ -19,7 +18,7 @@ namespace Assets.Game.Scripts.Controllers
 
         public void Move()
         {
-            transform.DOMove(carArrivePoint.position, 1f).SetEase(Ease.Linear).OnComplete(() =>
+            transform.DOMove(carArrivePoint.position, 1f).SetEase(Ease.InBack).OnComplete(() =>
             {
                 int childCount = baggageStackPoint.childCount;
 
@@ -34,7 +33,7 @@ namespace Assets.Game.Scripts.Controllers
                         baggage.gameObject.SetActive(false);
                         if (i1 == childCount - 1)
                         {
-                            transform.DOMove(initialPos, .5f).SetEase(Ease.Linear);
+                            transform.DOMove(initialPos, .5f).SetEase(Ease.OutBack);
                         }
                     });
                 }
