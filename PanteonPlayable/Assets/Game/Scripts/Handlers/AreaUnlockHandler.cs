@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Assets.Game.Scripts.Handlers
 {
-    public class AreaUnlockHandler : MonoBehaviour, ITrigger
+    public class AreaUnlockHandler : MonoBehaviour
     {
         [Header("Fill Bar Settings")]
         [SerializeField] private Image fillBar;

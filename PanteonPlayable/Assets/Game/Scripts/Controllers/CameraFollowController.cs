@@ -46,6 +46,16 @@ namespace Assets.Game.Scripts.Controllers
             transform.DOMove(target.position, moveToTargetDuration).SetEase(Ease.Linear);
             transform.DORotate(target.rotation.eulerAngles, moveToTargetDuration).SetEase(Ease.Linear);
         }
+        public void MoveToTarget(Transform target)
+        {
+            _canFollow = false;
+
+            lastPosition = transform.position;
+            lastRotationAngles = transform.rotation.eulerAngles;
+
+            transform.DOMove(target.position, moveToTargetDuration).SetEase(Ease.Linear);
+            transform.DORotate(target.rotation.eulerAngles, moveToTargetDuration).SetEase(Ease.Linear);
+        }
         private void BackToBase()
         {
             transform.DOMove(lastPosition, moveToTargetDuration).SetEase(Ease.Linear).OnComplete(() =>

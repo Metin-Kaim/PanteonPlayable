@@ -1,13 +1,11 @@
-﻿using Assets.Game.Scripts.Abstract;
-using Assets.Game.Scripts.Controllers;
-using Assets.Game.Scripts.Signals;
+﻿using Assets.Game.Scripts.Signals;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.Handlers
 {
-    public class StairHandler : MonoBehaviour, ITrigger
+    public class StairHandler : MonoBehaviour
     {
         [Header("Settings")]
         [SerializeField] private GameObject stairStep;
@@ -46,7 +44,7 @@ namespace Assets.Game.Scripts.Handlers
             }
 
             GameObject additionalStep = Instantiate(stairStep, transform);
-            additionalStep.transform.localPosition = stairSteps[^1].transform.localPosition;
+            additionalStep.transform.localPosition = stairSteps[stairSteps.Count - 1].transform.localPosition;
             stairSteps.Add(additionalStep);
             additionalStep.name = $"Step{stairSteps.Count - 1}";
 

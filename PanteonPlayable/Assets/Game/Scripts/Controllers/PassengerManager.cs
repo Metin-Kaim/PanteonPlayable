@@ -1,12 +1,9 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 using System;
 using System.Collections;
 using UnityEngine.Events;
-using Assets.Game.Scripts.Abstract;
-using Assets.Game.Scripts.Signals;
 
 namespace Assets.Game.Scripts.Controllers
 {

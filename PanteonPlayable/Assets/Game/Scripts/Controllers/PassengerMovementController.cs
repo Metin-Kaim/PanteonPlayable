@@ -30,7 +30,7 @@ namespace Assets.Game.Scripts.Controllers
 
             if (phasePoint.adaptive)
             {
-                positions[^1] += passengerManager.PassengerOffsetWithoutBaggage;
+                positions[positions.Count - 1] += passengerManager.PassengerOffsetWithoutBaggage;
             }
 
             phasePoint.itinialAction?.Invoke(this);

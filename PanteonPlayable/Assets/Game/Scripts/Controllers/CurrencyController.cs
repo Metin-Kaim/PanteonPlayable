@@ -1,6 +1,4 @@
-using Assets.Game.Scripts.Abstract;
 using Assets.Game.Scripts.Signals;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -10,9 +8,6 @@ public class CurrencyController : MonoBehaviour/*, ITrigger*/
     [SerializeField] short initialCurrency = 50;
 
     private short _currency;
-
-    private Coroutine currencyCoroutine;
-
 
     private void Start()
     {
@@ -38,26 +33,6 @@ public class CurrencyController : MonoBehaviour/*, ITrigger*/
         UpdateCurrenyText();
     }
 
-    //private IEnumerator AdjustCurrencyByTime()
-    //{
-    //    _currency--;
-    //    UpdateCurrenyText();
-
-    //    currencyCoroutine = null;
-    //}
-
-    //public void TriggerEnter()
-    //{
-    //    currencyCoroutine = StartCoroutine(AdjustCurrencyByTime());
-    //}
-
-    //public void TriggerExit()
-    //{
-    //    if (currencyCoroutine != null)
-    //    {
-    //        StopCoroutine(currencyCoroutine);
-    //    }
-    //}
     private void UpdateCurrenyText()
     {
         currencyText.text = _currency.ToString();

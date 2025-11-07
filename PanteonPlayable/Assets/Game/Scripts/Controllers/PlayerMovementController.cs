@@ -21,7 +21,7 @@ namespace Assets.Game.Scripts.Controllers
 
             if (joystickDirection != Vector2.zero)
             {
-                Vector3 inputDir = new(joystickDirection.y, 0, -joystickDirection.x);
+                Vector3 inputDir = new Vector3(joystickDirection.y, 0, -joystickDirection.x);
 
                 Quaternion targetRotation = Quaternion.LookRotation(inputDir);
 
