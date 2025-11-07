@@ -24,6 +24,7 @@ namespace Assets.Game.Scripts.Managers
         private void OnEnable()
         {
             PlayerSignals.Instance.onGetPlayerPosition += OnGetPlayerPosition;
+            PlayerSignals.Instance.onGetPlayerPositionForward += OnGetPlayerMoneyPoint;
             PlayerSignals.Instance.onSetPlayerParent += OnSetPlayerParent;
             PlayerSignals.Instance.onResetPlayerParent += OnResetPlayerParent;
             PlayerSignals.Instance.onClosePlayerCollider += OnClosePlayerCollider;
@@ -31,6 +32,11 @@ namespace Assets.Game.Scripts.Managers
             PlayerSignals.Instance.onGetPlayerBaggagePoint += OnGetPlayerBaggagePoint;
             PlayerSignals.Instance.onAddBaggage += OnAddBaggage;
             PlayerSignals.Instance.onGetAllBaggages += OnGetAllBaggages;
+        }
+
+        private Vector3 OnGetPlayerMoneyPoint()
+        {
+            return transform.position + transform.forward * .5f + transform.up * 0.5f;
         }
 
         private List<Transform> OnGetAllBaggages()
@@ -81,6 +87,7 @@ namespace Assets.Game.Scripts.Managers
         private void OnDisable()
         {
             PlayerSignals.Instance.onGetPlayerPosition -= OnGetPlayerPosition;
+            PlayerSignals.Instance.onGetPlayerPositionForward += OnGetPlayerMoneyPoint;
             PlayerSignals.Instance.onSetPlayerParent -= OnSetPlayerParent;
             PlayerSignals.Instance.onResetPlayerParent -= OnResetPlayerParent;
             PlayerSignals.Instance.onClosePlayerCollider -= OnClosePlayerCollider;

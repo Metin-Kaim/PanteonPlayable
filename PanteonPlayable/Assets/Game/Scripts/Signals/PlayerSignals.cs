@@ -18,6 +18,7 @@ namespace Assets.Game.Scripts.Signals
         public Func<Vector3> onGetPlayerBaggagePoint;
         public UnityAction<Transform> onAddBaggage;
         public Func<List<Transform>> onGetAllBaggages;
+        public Func<Vector3> onGetPlayerPositionForward;
 
         private void Awake()
         {

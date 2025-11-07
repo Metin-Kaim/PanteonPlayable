@@ -42,6 +42,15 @@ namespace Assets.Game.Scripts.Controllers
             }
         }
 
+        private void OnEnable()
+        {
+            PassengerSignals.Instance.onGetPassengerCount += () => passengerCount;
+        }
+        private void OnDisable()
+        {
+            PassengerSignals.Instance.onGetPassengerCount -= () => passengerCount;
+        }
+
         public void TriggerEnterWithBaggage(Transform triggerController)
         {
             InputSignals.Instance.onDeactivateInput.Invoke();

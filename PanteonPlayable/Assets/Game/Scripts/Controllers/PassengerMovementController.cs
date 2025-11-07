@@ -71,15 +71,13 @@ namespace Assets.Game.Scripts.Controllers
             Transform tempBaggage = baggage;
             baggage = null;
 
-            Vector3 offset = PlayerSignals.Instance.onGetPlayerBaggagePoint.Invoke();
+            Vector3 baggagePoint = PlayerSignals.Instance.onGetPlayerBaggagePoint.Invoke();
             PlayerSignals.Instance.onAddBaggage.Invoke(tempBaggage);
 
-            tempBaggage.transform.DOLocalJump(offset, 3, 1, .1f).SetEase(Ease.Linear).OnComplete(() =>
-            {
-                tempBaggage.transform.localPosition = offset;
-                Move();
-            });
+            tempBaggage.transform.DOLocalJump(baggagePoint, 3, 1, .3f).SetEase(Ease.Linear);
             tempBaggage.transform.DOLocalRotate(Vector3.forward * 90, .3f);
+
+            Invoke(nameof(Move), .1f);
         }
     }
 }
