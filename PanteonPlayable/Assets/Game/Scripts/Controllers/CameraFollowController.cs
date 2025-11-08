@@ -1,4 +1,5 @@
-﻿using Assets.Game.Scripts.Signals;
+﻿using Assets.Game.Scripts.Handlers;
+using Assets.Game.Scripts.Signals;
 using DG.Tweening;
 using UnityEngine;
 
@@ -7,11 +8,13 @@ namespace Assets.Game.Scripts.Controllers
     public class CameraFollowController : MonoBehaviour
     {
         [SerializeField] private float moveToTargetDuration = 1;
+        [SerializeField] private Camera camera;
 
         private Vector3 _followOffset;
         private bool _canFollow = true;
         private Vector3 lastPosition;
         private Vector3 lastRotationAngles;
+        
 
         private void OnEnable()
         {
@@ -34,15 +37,16 @@ namespace Assets.Game.Scripts.Controllers
             if (_canFollow)
                 transform.position = PlayerSignals.Instance.onGetPlayerPosition.Invoke() + _followOffset;
         }
-        public void MoveToTarget(Transform target)
+        public void MoveToTarget(CameraPointHandler camInfos)
         {
             LockCamFollow();
 
             lastPosition = transform.position;
             lastRotationAngles = transform.rotation.eulerAngles;
 
-            transform.DOMove(target.position, moveToTargetDuration).SetEase(Ease.Linear);
-            transform.DORotate(target.rotation.eulerAngles, moveToTargetDuration).SetEase(Ease.Linear);
+            transform.DOMove(camInfos.transform.position, moveToTargetDuration).SetEase(Ease.Linear);
+            transform.DORotate(camInfos.transform.rotation.eulerAngles, moveToTargetDuration).SetEase(Ease.Linear);
+            camera.DOOrthoSize(camInfos.CamOrtographicSize, moveToTargetDuration).SetEase(Ease.Linear);
         }
         private void BackToBase()
         {

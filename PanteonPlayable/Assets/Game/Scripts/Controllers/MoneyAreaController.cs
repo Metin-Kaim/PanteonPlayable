@@ -40,7 +40,8 @@ namespace Assets.Game.Scripts.Controllers
             {
                 GameObject newMoney = Instantiate(moneyPrefab, transform);
                 monies.Add(newMoney);
-                newMoney.transform.SetLocalPositionAndRotation(new Vector3(columnValue * columnSpace, heightValue * heightSpace, -rowValue * rowSpace), Quaternion.Euler(moneyRotation));
+                newMoney.transform.localPosition = new Vector3(columnValue * columnSpace, heightValue * heightSpace, -rowValue * rowSpace);
+                newMoney.transform.localRotation = Quaternion.Euler(moneyRotation);
                 newMoney.SetActive(false);
 
                 columnValue++;

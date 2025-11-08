@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Game.Scripts.Handlers;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Game.Scripts.Signals
@@ -7,7 +8,7 @@ namespace Assets.Game.Scripts.Signals
     {
         public static CameraSignals Instance;
 
-        public UnityAction<Transform> onMoveToTarget;
+        public UnityAction<CameraPointHandler> onMoveToTarget;
         public UnityAction onBackToBase;
 
         private void Awake()

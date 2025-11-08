@@ -178,8 +178,8 @@
             },
             {
                 "name": "particle-system",
-                "excluded": true,
-                "forceIncluded": false
+                "excluded": false,
+                "forceIncluded": true
             },
             {
                 "name": "reflection",
@@ -1456,10 +1456,6 @@
                 "excluded": true
             },
             {
-                "name": "Luna.Unity.DTO.UnityEngine.ParticleSystemTypes.Data.GradientColorKey",
-                "excluded": true
-            },
-            {
                 "name": "Luna.Unity.DTO.UnityEngine.ParticleSystemTypes.MinMaxGradient",
                 "excluded": true
             },
@@ -1616,10 +1612,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.Experimental.Rendering.GraphicsFormatUtility",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.FrustumPlanes",
                 "excluded": true
             },
@@ -1712,10 +1704,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.MipmapLimitDescriptor",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.MissingReferenceException",
                 "excluded": true
             },
@@ -1785,10 +1773,6 @@
             },
             {
                 "name": "UnityEngine.RangeInt",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.RaycastHit",
                 "excluded": true
             },
             {
@@ -1872,10 +1856,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.SystemInfo",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.TestTools.LogAssert",
                 "excluded": true
             },
@@ -1944,10 +1924,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.TrailModule",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.TrailRenderer.Parameters",
                 "excluded": true
             },
@@ -2001,10 +1977,6 @@
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Textures.Sprite",
-                "excluded": true
-            },
-            {
-                "name": "LunaUnity.Utils.Delay",
                 "excluded": true
             },
             {
@@ -2236,10 +2208,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.MaterialPropertyBlock",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.Networking.UnityWebRequestAsyncOperation",
                 "excluded": true
             },
@@ -2348,10 +2316,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.ParticleSystem",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.ReflectionProbe",
                 "excluded": true
             },
@@ -2437,14 +2401,6 @@
             },
             {
                 "name": "UnityEngine.LineRenderer",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.MeshCollider",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.ParticleSystemRenderer",
                 "excluded": true
             },
             {
@@ -2961,7 +2917,7 @@
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.ParticleSystemTypes.Data.GradientAlphaKey",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.ParticleSystemTypes.Gradient",
@@ -4369,7 +4325,7 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemAnimationMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemAnimationRowMode",
@@ -4381,7 +4337,7 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemAnimationType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemColliderQueryMode",
@@ -4421,7 +4377,7 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemEmitterVelocityMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemForceFieldShape",
@@ -4437,7 +4393,7 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemInheritVelocityMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemMeshDistribution",
@@ -4445,11 +4401,11 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemMeshShapeType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemNoiseQuality",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemOverlapAction",
@@ -4457,11 +4413,11 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemRenderMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemRenderSpace",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemRingBufferMode",
@@ -4469,11 +4425,11 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemScalingMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemShapeMultiModeValue",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemShapeTextureChannel",
@@ -4481,23 +4437,23 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemShapeType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemSimulationSpace",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemSortMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemStopAction",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemStopBehavior",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemSubEmitterProperties",
@@ -4717,7 +4673,7 @@
             },
             {
                 "name": "UnityEngine.QueryTriggerInteraction",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.QueueMode",
@@ -5365,7 +5321,7 @@
             },
             {
                 "name": "UnityEngine.TextureFormat",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.TextureImporterAlphaSource",
@@ -5905,7 +5861,7 @@
             },
             {
                 "name": "UnityEngine.WrapMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.WSA.Folder",
@@ -7089,10 +7045,6 @@
             },
             {
                 "name": "DG.Tweening.Plugins.DoublePlugin",
-                "excluded": true
-            },
-            {
-                "name": "DG.Tweening.Plugins.FloatPlugin",
                 "excluded": true
             },
             {
@@ -9125,7 +9077,7 @@
                     },
                     {
                         "name": "clip32",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "clipu32",
@@ -9245,7 +9197,7 @@
                 "instanceMethods": [
                     {
                         "name": "format",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "equals",
@@ -12201,7 +12153,7 @@
                     },
                     {
                         "name": "Count#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "IsReadOnly#get",
@@ -12329,11 +12281,11 @@
                     },
                     {
                         "name": "IncreaseCapacity",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetCapacity",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "AddIfNotPresent",
@@ -12491,7 +12443,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -17797,11 +17749,11 @@
                     },
                     {
                         "name": "width#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "height#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "filterMode#get",
@@ -17873,7 +17825,7 @@
                     },
                     {
                         "name": "ValidateFormat$2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ValidateFormat",
@@ -18771,7 +18723,7 @@
                     },
                     {
                         "name": "up#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "up#set",
@@ -19785,11 +19737,11 @@
                     },
                     {
                         "name": "orthographicSize#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "orthographicSize#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "orthographic#get",
@@ -20401,11 +20353,11 @@
                     },
                     {
                         "name": "SetPropertyBlock",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetPropertyBlock$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "HasPropertyBlock",
@@ -20873,7 +20825,7 @@
                     },
                     {
                         "name": "$ctor18",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "$ctor14",
@@ -20901,7 +20853,7 @@
                     },
                     {
                         "name": "$ctor11",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "$ctor1",
@@ -20949,7 +20901,7 @@
                     },
                     {
                         "name": "SetPixels$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetPixels",
@@ -20977,7 +20929,7 @@
                     },
                     {
                         "name": "Apply",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ReadPixels",
@@ -21005,7 +20957,7 @@
                     },
                     {
                         "name": "ValidateFormat$4",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ValidateFormat$3",
@@ -28285,15 +28237,15 @@
                 "instanceMethods": [
                     {
                         "name": "getDefaultValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Reset",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "getHashCode",
@@ -28305,7 +28257,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -28504,6 +28456,14 @@
                     {
                         "name": "TriggerExit",
                         "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
                     }
                 ]
             },
@@ -28684,6 +28644,10 @@
                     {
                         "name": "OnDisable",
                         "excluded": true
+                    },
+                    {
+                        "name": "OnGetPlayerMoneyPoint",
+                        "excluded": false
                     }
                 ]
             },
@@ -29035,11 +28999,11 @@
                 "instanceMethods": [
                     {
                         "name": "World#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "gravity#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "gravity#set",
@@ -29091,7 +29055,7 @@
                     },
                     {
                         "name": "Raycast$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RaycastAll",
@@ -29271,7 +29235,7 @@
                     },
                     {
                         "name": "RaycastInternal$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RaycastInternal",
@@ -29283,11 +29247,11 @@
                     },
                     {
                         "name": "CapRaycastDistance",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ShouldHitTriggers",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -30067,7 +30031,7 @@
                     },
                     {
                         "name": "To$4",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "To$1",
@@ -30517,7 +30481,7 @@
                     },
                     {
                         "name": "DOOrthoSize",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOPixelRect",
@@ -30669,7 +30633,7 @@
                     },
                     {
                         "name": "DOScale$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOScale",
@@ -30721,7 +30685,7 @@
                     },
                     {
                         "name": "DOJump",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOLocalJump",
@@ -31731,6 +31695,1314 @@
                 "className": "DG.Tweening.Core.SequenceCallback",
                 "staticMethods": [],
                 "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Luna.Unity.DTO.UnityEngine.ParticleSystemTypes.Data.GradientColorKey",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.TrailModule",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "enabled#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "enabled#set",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.ParticleSystem",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "main#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "emission#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "colorBySpeed#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "colorOverLifetime#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "rotationBySpeed#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "rotationOverLifetime#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "shape#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sizeBySpeed#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sizeOverLifetime#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "textureSheetAnimation#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "velocityOverLifetime#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "noise#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "inheritVelocity#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "forceOverLifetime#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "limitVelocityOverLifetime#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "enableEmission#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "enableEmission#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxParticles#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxParticles#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "isPlaying#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "isPaused#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "isStopped#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "time#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "isEmitting#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "particleCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "duration#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "duration#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "loop#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "loop#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "startDelay#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "startDelay#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "prewarm#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "prewarm#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "simulationSpace#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "simulationSpace#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "simulationSpeed#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "simulationSpeed#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "useRigidbodyForVelocity#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "useRigidbodyForVelocity#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "useUnscaledTime#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "useUnscaledTime#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "scalingMode#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "scalingMode#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "moveWithCustomTransform#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "moveWithCustomTransform#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "startSize3D#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "startSize3D#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "playOnAwake#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "playOnAwake#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetParticles",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParticles",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetCustomParticleData",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsAlive",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Play",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Play$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Pause",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Pause$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Stop",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Stop$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Stop$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Emit",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Simulate",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.ParticleSystemRenderer",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "mesh#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "mesh#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "meshCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "meshCount#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "activeVertexStreamsCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "activeVertexStreamsCount#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "alignment#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "alignment#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "renderMode#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "renderMode#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortMode#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortMode#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "lengthScale#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "lengthScale#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "velocityScale#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "velocityScale#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "cameraVelocityScale#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "cameraVelocityScale#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "normalDirection#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "normalDirection#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortingFudge#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortingFudge#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "minParticleSize#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "minParticleSize#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxParticleSize#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxParticleSize#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "pivot#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "pivot#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "trailMaterial#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "trailMaterial#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "applyActiveColorSpace#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "applyActiveColorSpace#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "BakeTrailsMesh",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BakeMesh",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Assets.Game.Scripts.Controllers.MoneyAreaController",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnTriggeredByPassenger",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnTriggeredByPlayer",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveMoniesToPlayer",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Assets.Game.Scripts.Handlers.CameraPointHandler",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "CamOrtographicSize#get",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Assets.Game.Scripts.Signals.PassengerSignals",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "PaintableWall",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PaintAt",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetPaintColor",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.Plugins.FloatPlugin",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Reset",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetFrom$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFrom",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ConvertToStartValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetRelativeEndValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetChangeValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetSpeedBasedDuration",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EvaluateAndApply",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "LunaUnity.Utils.Delay",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Stop",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Tick",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.Experimental.Rendering.GraphicsFormatUtility",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetGraphicsFormat$2",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetGraphicsFormat$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetGraphicsFormat",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.MipmapLimitDescriptor",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.SystemInfo",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "batteryLevel#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "batteryStatus#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "operatingSystem#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "operatingSystemFamily#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "processorType#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "processorFrequency#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "processorCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "systemMemorySize#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "deviceUniqueIdentifier#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "deviceName#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "deviceModel#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsAccelerometer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsGyroscope#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsLocationService#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsVibration#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsAudio#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "deviceType#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsMemorySize#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsDeviceName#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsDeviceVendor#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsDeviceID#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsDeviceVendorID#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsDeviceType#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsUVStartsAtTop#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsDeviceVersion#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsShaderLevel#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsMultiThreaded#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "renderingThreadingMode#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "hasHiddenSurfaceRemovalOnGPU#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "hasDynamicUniformArrayIndexingInFragmentShaders#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsShadows#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsRawShadowDepthSampling#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsMotionVectors#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supports3DTextures#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supports2DArrayTextures#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supports3DRenderTextures#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsCubemapArrayTextures#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "copyTextureSupport#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsComputeShaders#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsGeometryShaders#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsTessellationShaders#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsInstancing#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsHardwareQuadTopology#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supports32bitsIndexBuffer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsSparseTextures#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportedRenderTargetCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsSeparatedRenderTargetsBlend#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportedRandomWriteTargetCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsMultisampledTextures#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsMultisampleAutoResolve#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsTextureWrapMirrorOnce#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "usesReversedZBuffer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "npotSupport#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxTextureSize#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxCubemapSize#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxComputeBufferInputsVertex#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxComputeBufferInputsFragment#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxComputeBufferInputsGeometry#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxComputeBufferInputsDomain#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxComputeBufferInputsHull#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxComputeBufferInputsCompute#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxComputeWorkGroupSize#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxComputeWorkGroupSizeX#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxComputeWorkGroupSizeY#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxComputeWorkGroupSizeZ#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsAsyncCompute#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsGraphicsFence#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsAsyncGPUReadback#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsRayTracing#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsSetConstantBuffer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "minConstantBufferOffsetAlignment#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "hasMipMaxLevel#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsMipStreaming#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "usesLoadStoreActions#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsRenderTextures#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsRenderToCubemap#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsImageEffects#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsStencil#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "graphicsPixelFillrate#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsVertexPrograms#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "supportsGPUFence#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SupportsRenderTextureFormat",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SupportsBlendingOnRenderTextureFormat",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SupportsRandomWriteOnRenderTextureFormat",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SupportsTextureFormat",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SupportsVertexAttributeFormat",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsFormatSupported",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsFormatSupported$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetCompatibleFormat",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetCompatibleFormat$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetGraphicsFormat",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.MaterialPropertyBlock",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "isEmpty#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParameter$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParameter$4",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetParameter$5",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetParameter",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParameter$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParameter$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetFloat$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetFloat",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFloat$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFloat",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetInt$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetInt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetInt$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetInt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMatrix$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMatrix",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMatrix$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMatrix",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTexture$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTexture",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTexture$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetTexture",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetColor$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetColor$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetVector$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetVector",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVector$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVector",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetFloatArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetFloatArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFloatArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFloatArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMatrixArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMatrixArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMatrixArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMatrixArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetVectorArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetVectorArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVectorArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVectorArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetBuffer$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetBuffer",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetConstantBuffer$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetConstantBuffer",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyProbeOcclusionArrayFrom$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyProbeOcclusionArrayFrom",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyProbeOcclusionArrayFrom$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyProbeOcclusionArrayFrom$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopySHCoefficientArraysFrom",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopySHCoefficientArraysFrom$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopySHCoefficientArraysFrom$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopySHCoefficientArraysFrom$1",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.RaycastHit",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "transform#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.MeshCollider",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "center#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "center#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMesh#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "sharedMesh#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "convex#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "convex#set",
+                        "excluded": true
+                    },
                     {
                         "name": "ctor",
                         "excluded": false

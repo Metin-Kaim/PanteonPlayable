@@ -22,7 +22,8 @@ namespace Assets.Game.Scripts.Handlers
         [SerializeField] private GameObject[] objectsToOpenWithDelay;
         [SerializeField] private float delay;
         [SerializeField] private float openingDuration;
-        [SerializeField] private Transform camViewPoint;
+        [SerializeField] private float delayedOpeningDuration;
+        [SerializeField] private bool cameraBackToBase;
 
         private short _currentCurrencyCost;
         private short _fillCycleCount = 0;
@@ -52,12 +53,13 @@ namespace Assets.Game.Scripts.Handlers
                 item.SetActive(true);
 
                 int i1 = i;
-                item.transform.DOScale(0, openingDuration).From().SetEase(Ease.Linear).SetDelay(openingDuration + delay * i).OnComplete(() =>
+                item.transform.DOScale(0, delayedOpeningDuration).From().SetEase(Ease.Linear).SetDelay(openingDuration + delay * i).OnComplete(() =>
                 {
-                    if (i1 == objectsToOpenWithDelay.Length - 1)
-                    {
-                        CameraSignals.Instance.onBackToBase.Invoke();
-                    }
+                    if (cameraBackToBase)
+                        if (i1 == objectsToOpenWithDelay.Length - 1)
+                        {
+                            CameraSignals.Instance.onBackToBase.Invoke();
+                        }
                 });
             }
         }
@@ -101,9 +103,7 @@ namespace Assets.Game.Scripts.Handlers
         {
             fillBar.fillAmount = 1;
 
-            CameraSignals.Instance.onMoveToTarget.Invoke(camViewPoint);
             UnlockTheObjects();
-
 
             transform.DOScale(0, closeThisObjectDuration).SetEase(Ease.OutBack).OnComplete(() =>
             {
