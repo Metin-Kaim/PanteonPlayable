@@ -24,14 +24,13 @@ namespace Assets.Game.Scripts.Managers
         private void OnEnable()
         {
             PlayerSignals.Instance.onGetPlayerPosition += OnGetPlayerPosition;
-            PlayerSignals.Instance.onGetPlayerPositionForward += OnGetPlayerMoneyPoint;
-            PlayerSignals.Instance.onSetPlayerParent += OnSetPlayerParent;
-            PlayerSignals.Instance.onResetPlayerParent += OnResetPlayerParent;
+            PlayerSignals.Instance.onGetPlayerMoneyPosition += OnGetPlayerMoneyPoint;
             PlayerSignals.Instance.onClosePlayerCollider += OnClosePlayerCollider;
             PlayerSignals.Instance.onOpenPlayerCollider += OnOpenPlayerCollider;
             PlayerSignals.Instance.onGetPlayerBaggagePoint += OnGetPlayerBaggagePoint;
             PlayerSignals.Instance.onAddBaggage += OnAddBaggage;
             PlayerSignals.Instance.onGetAllBaggages += OnGetAllBaggages;
+            PlayerSignals.Instance.onGetPlayer += () => transform;
         }
 
         private Vector3 OnGetPlayerMoneyPoint()
@@ -69,17 +68,6 @@ namespace Assets.Game.Scripts.Managers
             playerCollider.enabled = false;
         }
 
-        private void OnResetPlayerParent()
-        {
-            transform.SetParent(_initialParent);
-        }
-
-        private void OnSetPlayerParent(Transform newParent)
-        {
-            transform.SetParent(newParent);
-            transform.DOLocalMove(Vector3.zero, .2f).SetEase(Ease.Linear);
-        }
-
         private Vector3 OnGetPlayerPosition()
         {
             return transform.position;
@@ -87,14 +75,13 @@ namespace Assets.Game.Scripts.Managers
         private void OnDisable()
         {
             PlayerSignals.Instance.onGetPlayerPosition -= OnGetPlayerPosition;
-            PlayerSignals.Instance.onGetPlayerPositionForward += OnGetPlayerMoneyPoint;
-            PlayerSignals.Instance.onSetPlayerParent -= OnSetPlayerParent;
-            PlayerSignals.Instance.onResetPlayerParent -= OnResetPlayerParent;
+            PlayerSignals.Instance.onGetPlayerMoneyPosition += OnGetPlayerMoneyPoint;
             PlayerSignals.Instance.onClosePlayerCollider -= OnClosePlayerCollider;
             PlayerSignals.Instance.onOpenPlayerCollider -= OnOpenPlayerCollider;
             PlayerSignals.Instance.onGetPlayerBaggagePoint -= OnGetPlayerBaggagePoint;
             PlayerSignals.Instance.onAddBaggage -= OnAddBaggage;
             PlayerSignals.Instance.onGetAllBaggages -= OnGetAllBaggages;
+            PlayerSignals.Instance.onGetPlayer -= () => transform;
         }
     }
 }

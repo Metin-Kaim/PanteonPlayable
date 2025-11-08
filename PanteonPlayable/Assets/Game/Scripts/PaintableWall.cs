@@ -99,14 +99,12 @@ public class PaintableWall : MonoBehaviour
 
         float percent = (float)paintedPixels.Count / maskPixels.Length * 100f;
         PaintSignals.Instance.onSetPaintPercent.Invoke($"{(int)percent}%");
-        Debug.Log($"Painted: {percent:F1}%");
     }
 
 
     private void SetPaintColor(Color newColor)
     {
         paintColor = newColor;
-        // Bu artık shader içinde direkt kullanılmıyor ama referans için tutuluyor
         mpb.SetColor("_PaintColor", paintColor);
         wallRenderer.SetPropertyBlock(mpb);
     }

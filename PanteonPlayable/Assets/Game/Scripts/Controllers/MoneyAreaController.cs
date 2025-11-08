@@ -93,15 +93,15 @@ namespace Assets.Game.Scripts.Controllers
 
                 yield return waitSec;
 
-                money.transform.DOJump(PlayerSignals.Instance.onGetPlayerPositionForward.Invoke(), 3, 1, moneyMovingToPlayerDuration)
+                money.transform.DOJump(PlayerSignals.Instance.onGetPlayerMoneyPosition.Invoke(), 3, 1, moneyMovingToPlayerDuration)
                     .OnComplete(() =>
                     {
                         money.SetActive(false);
+                        EconomySignals.Instance.onAdjustCurrency.Invoke(eachMoneyValue);
 
                         if (i1 == monies.Count - 1)
                         {
                             triggerController.gameObject.SetActive(false);
-                            CanvasSignals.Instance.onAdjustCurrency.Invoke((short)(monies.Count * eachMoneyValue));
                         }
                     });
                 money.transform.DOScale(money.transform.localScale / 2, moneyMovingToPlayerDuration / 2).SetDelay(moneyMovingToPlayerDuration / 2);

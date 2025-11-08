@@ -17,11 +17,11 @@ public class CurrencyController : MonoBehaviour
 
     private void OnEnable()
     {
-        CanvasSignals.Instance.onAdjustCurrency += AdjustCurreny;
+        EconomySignals.Instance.onAdjustCurrency += AdjustCurreny;
     }
     private void OnDisable()
     {
-        CanvasSignals.Instance.onAdjustCurrency -= AdjustCurreny;
+        EconomySignals.Instance.onAdjustCurrency -= AdjustCurreny;
     }
 
     private void AdjustCurreny(short value)
@@ -31,6 +31,8 @@ public class CurrencyController : MonoBehaviour
         if (_currency < 0) _currency = 0;
 
         UpdateCurrenyText();
+
+        EconomySignals.Instance.onAdjustedCurrency.Invoke(_currency);
     }
 
     private void UpdateCurrenyText()

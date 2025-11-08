@@ -8,7 +8,7 @@ namespace Assets.Game.Scripts.Controllers
     public class CameraFollowController : MonoBehaviour
     {
         [SerializeField] private float moveToTargetDuration = 1;
-        [SerializeField] private Camera camera;
+        [SerializeField] private Camera cam;
 
         private Vector3 _followOffset;
         private bool _canFollow = true;
@@ -46,7 +46,7 @@ namespace Assets.Game.Scripts.Controllers
 
             transform.DOMove(camInfos.transform.position, moveToTargetDuration).SetEase(Ease.Linear);
             transform.DORotate(camInfos.transform.rotation.eulerAngles, moveToTargetDuration).SetEase(Ease.Linear);
-            camera.DOOrthoSize(camInfos.CamOrtographicSize, moveToTargetDuration).SetEase(Ease.Linear);
+            cam.DOOrthoSize(camInfos.CamOrtographicSize, moveToTargetDuration).SetEase(Ease.Linear);
         }
         private void BackToBase()
         {

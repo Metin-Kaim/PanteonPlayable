@@ -1,6 +1,7 @@
 ﻿using Assets.Game.Scripts.Controllers;
 using Assets.Game.Scripts.Signals;
 using DG.Tweening;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -24,14 +25,47 @@ namespace Assets.Game.Scripts.Handlers
         [SerializeField] private float openingDuration;
         [SerializeField] private float delayedOpeningDuration;
         [SerializeField] private bool cameraBackToBase;
+        [SerializeField] private bool isOpened;
 
         private short _currentCurrencyCost;
         private short _fillCycleCount = 0;
+        private Vector3 initScale;
+
+        private void OnEnable()
+        {
+            EconomySignals.Instance.onAdjustedCurrency += GetCheckAvailability;
+        }
+
+        private void GetCheckAvailability(short currency)
+        {
+            if (isOpened) return;
+
+            if (currencyCost >= currency)
+            {
+                OpenObject();
+            }
+        }
+
+        private void OpenObject()
+        {
+            isOpened = true;
+
+            CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+
+            DOTween.To(() => canvasGroup.alpha, value => canvasGroup.alpha = value, 1, .3f).SetEase(Ease.Linear);
+            transform.DOScale(initScale * 1.1f, 0.3f).SetEase(Ease.OutBack);
+        }
+
+        private void OnDisable()
+        {
+            EconomySignals.Instance.onAdjustedCurrency -= GetCheckAvailability;
+        }
 
         private void Start()
         {
             _currentCurrencyCost = currencyCost;
             UpdateCurrencyCostText();
+            initScale = transform.localScale;
         }
 
         private void UpdateCurrencyCostText()
@@ -88,7 +122,7 @@ namespace Assets.Game.Scripts.Handlers
 
                 if (_currentCurrencyCost < 0) _currentCurrencyCost = 0;
 
-                CanvasSignals.Instance.onAdjustCurrency.Invoke(-1);
+                EconomySignals.Instance.onAdjustCurrency.Invoke(-1);
                 UpdateCurrencyCostText();
 
                 if (_fillCycleCount >= currencyCost) break;
@@ -105,7 +139,7 @@ namespace Assets.Game.Scripts.Handlers
 
             UnlockTheObjects();
 
-            transform.DOScale(0, closeThisObjectDuration).SetEase(Ease.OutBack).OnComplete(() =>
+            transform.DOScale(0, closeThisObjectDuration).SetEase(Ease.InBack).OnComplete(() =>
             {
                 gameObject.SetActive(false);
             });

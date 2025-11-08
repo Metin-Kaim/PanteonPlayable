@@ -1,7 +1,11 @@
-﻿using Assets.Game.Scripts.Signals;
+﻿using Assets.Game.Scripts.Controllers;
+using Assets.Game.Scripts.Signals;
+using DG.Tweening;
+using Luna.Unity.FacebookInstantGames;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Assets.Game.Scripts.Handlers
 {
@@ -13,14 +17,9 @@ namespace Assets.Game.Scripts.Handlers
         [SerializeField] private Transform endPoint;
         [SerializeField] private byte stepCount;
         [SerializeField] private float moveSpeed = 1;
-        [SerializeField] private float playerWaitingDuration = 1;
 
         [Header("RunTime Variables")]
         [SerializeField] private List<GameObject> stairSteps;
-        [SerializeField] private GameObject lastUsedStep;
-
-        private GameObject _stepOfPlayer;
-        private Coroutine _stairCoroutine;
 
         private void Start()
         {
@@ -60,62 +59,76 @@ namespace Assets.Game.Scripts.Handlers
             {
                 foreach (var step in stairSteps)
                 {
-                    step.transform.localPosition += moveSpeed * Time.deltaTime * (endPoint.localPosition - startPoint.localPosition).normalized;
+                    Vector3 direction = (endPoint.localPosition - step.transform.localPosition).normalized;
+                    step.transform.localPosition += moveSpeed * Time.deltaTime * direction;
 
-                    float totalDistance = Vector3.Distance(startPoint.localPosition, endPoint.localPosition);
-                    float currentDistance = Vector3.Distance(startPoint.localPosition, step.transform.localPosition);
-                    if (currentDistance > totalDistance)
+                    if (Mathf.Abs(Vector3.Distance(step.transform.localPosition, endPoint.localPosition)) < 0.05f)
                     {
-                        if (_stepOfPlayer == step)
-                        {
-                            ReleaseThePlayer();
-                            _stepOfPlayer = null;
-                        }
-
                         step.transform.localPosition = startPoint.localPosition;
-                        lastUsedStep = step;
-
                     }
                 }
                 yield return null;
             }
         }
-        private IEnumerator MoveThePlayerToEndPoint()
+        private IEnumerator MoveThePlayerToEndPoint(Transform triggerController)
         {
-            yield return new WaitForSeconds(playerWaitingDuration);
-
-            _stairCoroutine = null;
-
-            _stepOfPlayer = lastUsedStep;
-
             InputSignals.Instance.onDeactivateInput.Invoke();
             PlayerSignals.Instance.onClosePlayerCollider.Invoke();
-            PlayerSignals.Instance.onSetPlayerParent.Invoke(lastUsedStep.transform);
+
+            Transform player = PlayerSignals.Instance.onGetPlayer.Invoke();
+
+            Vector3[] stairPath = new Vector3[]
+            {
+                startPoint.position,
+                endPoint.position,
+                endPoint.position + endPoint.forward
+            };
+
+            byte pathIndex = 0;
+
+            while (pathIndex < stairPath.Length)
+            {
+                Vector3 selectedPos = stairPath[pathIndex];
+
+                Vector3 direction = (selectedPos - player.transform.position).normalized;
+                player.transform.position += moveSpeed * Time.deltaTime * direction;
+
+                if (direction != Vector3.zero)
+                {
+                    Vector3 flatDir = new Vector3(direction.x, 0, direction.z); // sadece yatay eksende
+                    Quaternion targetRot = Quaternion.LookRotation(flatDir);
+                    player.transform.rotation = Quaternion.Slerp(
+                        player.transform.rotation,
+                        targetRot,
+                        Time.deltaTime * 10f // dönüş hızı
+                    );
+                }
+
+                if (Mathf.Abs(Vector3.Distance(player.transform.position, selectedPos)) < 0.05f)
+                {
+                    pathIndex++;
+                }
+
+
+                yield return null;
+            }
+            ReleaseThePlayer();
+            triggerController.gameObject.SetActive(false);
         }
 
         public void ReleaseThePlayer()
         {
-            PlayerSignals.Instance.onResetPlayerParent.Invoke();
             PlayerSignals.Instance.onOpenPlayerCollider.Invoke();
             InputSignals.Instance.onActivateInput.Invoke();
-
         }
 
-        public void TriggerEnter()
+        public void TriggerEnter(Transform triggerController)
         {
-            if (_stairCoroutine != null) return;
-
-            _stairCoroutine = StartCoroutine(MoveThePlayerToEndPoint());
+            StartCoroutine(MoveThePlayerToEndPoint(triggerController));
         }
 
         public void TriggerExit()
-        {
-            if (_stairCoroutine != null)
-            {
-                StopCoroutine(_stairCoroutine);
-                _stairCoroutine = null;
-            }
-        }
+        { }
 
         //public void MovePassengerToUp(Transform target)
         //{
@@ -126,7 +139,7 @@ namespace Assets.Game.Scripts.Handlers
         //{
         //    while (true)
         //    {
-        //        target.transform.position += moveSpeed * Time.deltaTime * (endPoint.position - startPoint.position).normalized;
+        //        target.transform.position += moveSpeed * Time.deltaTime * (endPoint.position - startPoint.position).direction;
 
         //        float totalDistance = Vector3.Distance(startPoint.position, endPoint.position);
         //        float currentDistance = Vector3.Distance(startPoint.position, target.transform.position);

@@ -11,14 +11,13 @@ namespace Assets.Game.Scripts.Signals
         public static PlayerSignals Instance;
 
         public Func<Vector3> onGetPlayerPosition;
-        public UnityAction<Transform> onSetPlayerParent;
-        public UnityAction onResetPlayerParent;
         public UnityAction onClosePlayerCollider;
         public UnityAction onOpenPlayerCollider;
         public Func<Vector3> onGetPlayerBaggagePoint;
         public UnityAction<Transform> onAddBaggage;
         public Func<List<Transform>> onGetAllBaggages;
-        public Func<Vector3> onGetPlayerPositionForward;
+        public Func<Vector3> onGetPlayerMoneyPosition;
+        public Func<Transform> onGetPlayer;
 
         private void Awake()
         {
