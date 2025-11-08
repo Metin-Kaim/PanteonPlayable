@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,7 @@ namespace Assets.Game.Scripts.Signals
         public static PaintSignals Instance;
 
         public UnityAction<Color> onSetPaintColor;
+        public UnityAction<string> onSetPaintPercent;
 
         private void Awake()
         {

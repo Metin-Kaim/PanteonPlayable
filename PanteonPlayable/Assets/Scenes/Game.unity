@@ -156,11 +156,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 630523127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 659.99994, y: -209.61676}
-  m_SizeDelta: {x: 373.3333, y: 419.2334}
-  m_Pivot: {x: 0, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0.000020558946, y: 0}
+  m_SizeDelta: {x: 373.33325, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1189155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,8 +205,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 630523128}
-        m_TargetAssemblyTypeName: Assets.Game.Scripts.Controllers.ColorSelectionButtonController,
+      - m_Target: {fileID: 1015522376}
+        m_TargetAssemblyTypeName: Assets.Game.Scripts.Controllers.PaintPanelController,
           Assembly-CSharp
         m_MethodName: SetPaintColor
         m_Mode: 2
@@ -1128,11 +1128,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 630523127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1133.3333, y: -209.61676}
-  m_SizeDelta: {x: 373.3333, y: 419.2334}
-  m_Pivot: {x: 0, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 373.33325, y: 0}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &186192258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1177,8 +1177,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 630523128}
-        m_TargetAssemblyTypeName: Assets.Game.Scripts.Controllers.ColorSelectionButtonController,
+      - m_Target: {fileID: 1015522376}
+        m_TargetAssemblyTypeName: Assets.Game.Scripts.Controllers.PaintPanelController,
           Assembly-CSharp
         m_MethodName: SetPaintColor
         m_Mode: 2
@@ -2286,22 +2286,17 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -186.66667, y: 168.61665}
-  m_SizeDelta: {x: 1319.9999, y: 419.2335}
+  m_AnchoredPosition: {x: -0.0094938, y: 90}
+  m_SizeDelta: {x: 1224.423, y: 345.287}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &630523128
-MonoBehaviour:
+--- !u!222 &630523128
+CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630523126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65aaf718e0f87d448bab34fd51bddaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handlers: []
+  m_CullTransparentMesh: 1
 --- !u!1 &652596550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,6 +3150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1015522373}
   - component: {fileID: 1015522375}
+  - component: {fileID: 1015522376}
   m_Layer: 5
   m_Name: PaintPanel
   m_TagString: Untagged
@@ -3191,6 +3187,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015522372}
   m_CullTransparentMesh: 1
+--- !u!114 &1015522376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015522372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65aaf718e0f87d448bab34fd51bddaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintPercentText: {fileID: 1904031273}
+  handlers:
+  - {fileID: 1138132105}
+  - {fileID: 1189158}
+  - {fileID: 186192261}
 --- !u!1 &1016251426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3827,10 +3840,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 630523127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 186.66663, y: -209.61679}
-  m_SizeDelta: {x: 373.3333, y: 419.2334}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: 373.33325, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1138132102
 MonoBehaviour:
@@ -3876,8 +3889,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 630523128}
-        m_TargetAssemblyTypeName: Assets.Game.Scripts.Controllers.ColorSelectionButtonController,
+      - m_Target: {fileID: 1015522376}
+        m_TargetAssemblyTypeName: Assets.Game.Scripts.Controllers.PaintPanelController,
           Assembly-CSharp
         m_MethodName: SetPaintColor
         m_Mode: 2
@@ -16081,8 +16094,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -260}
-  m_SizeDelta: {x: 1325.465, y: 355.66}
+  m_AnchoredPosition: {x: -0.021004, y: -260}
+  m_SizeDelta: {x: 1224.4, y: 355.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1797583317
 MonoBehaviour:
@@ -17532,7 +17545,7 @@ GameObject:
   - component: {fileID: 5849728213495678345}
   - component: {fileID: 7103633455318339607}
   - component: {fileID: 7103633455318339608}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BoardPaint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18828,7 +18841,9 @@ MonoBehaviour:
   brushRadius: 0.02
   minBrushRadius: 0.02
   maxBrushRadius: 0.1
-  paintColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  paintLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!64 &7103633455318339608
 MeshCollider:
   m_ObjectHideFlags: 0

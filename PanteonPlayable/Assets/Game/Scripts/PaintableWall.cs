@@ -9,8 +9,9 @@ public class PaintableWall : MonoBehaviour
     [SerializeField] private float brushRadius = 0.02f;
     [SerializeField] private float minBrushRadius = 0.02f;
     [SerializeField] private float maxBrushRadius = 0.1f;
-    [SerializeField] private Color paintColor = Color.yellow;
+    [SerializeField] private LayerMask paintLayer;
 
+    private Color paintColor;
     private Texture2D maskTexture;
     private Color[] maskPixels;
     private HashSet<int> paintedPixels = new HashSet<int>();
@@ -47,8 +48,6 @@ public class PaintableWall : MonoBehaviour
 
         mpb.SetTexture("_MaskTex", maskTexture);
         wallRenderer.SetPropertyBlock(mpb);
-
-        SetPaintColor(Color.yellow);
     }
 
     void Update()
@@ -56,7 +55,7 @@ public class PaintableWall : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, 50, paintLayer))
                 PaintAt(hit.textureCoord);
         }
     }
@@ -99,6 +98,7 @@ public class PaintableWall : MonoBehaviour
         wallRenderer.SetPropertyBlock(mpb);
 
         float percent = (float)paintedPixels.Count / maskPixels.Length * 100f;
+        PaintSignals.Instance.onSetPaintPercent.Invoke($"{(int)percent}%");
         Debug.Log($"Painted: {percent:F1}%");
     }
 
