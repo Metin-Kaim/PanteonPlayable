@@ -100,7 +100,7 @@ namespace Assets.Game.Scripts.Handlers
 
             Vector3[] stairPath = new Vector3[]
             {
-                startPoint.position,
+                startPoint.position - startPoint.forward * 0.5f,
                 endPoint.position,
                 endPoint.position + endPoint.forward
             };

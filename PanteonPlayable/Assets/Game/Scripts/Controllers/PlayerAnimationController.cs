@@ -10,6 +10,7 @@ namespace Assets.Game.Scripts.Controllers
         [SerializeField] private Animator animator;
 
         private Tweener _carryTweener;
+        private bool _isRunning;
 
         private void OnEnable()
         {
@@ -24,10 +25,16 @@ namespace Assets.Game.Scripts.Controllers
 
         public void SetRun()
         {
+            if (_isRunning) return;
+            _isRunning = true;
+
             animator.SetTrigger("Run");
         }
         public void SetIdle()
         {
+            if (!_isRunning) return;
+            _isRunning = false;
+
             animator.SetTrigger("Idle");
         }
         public void SetCarry(bool isCarrying)

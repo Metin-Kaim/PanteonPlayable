@@ -68,7 +68,7 @@ namespace Assets.Game.Scripts.Controllers
             {
                 PassengerMovementController firstPass = _passengerList[passIndex];
                 firstPass.GiveBaggageToPlayer();
-
+                firstPass.animationController.SetCarry(false);
                 passIndex++;
 
                 for (int i = 0; i < _passengerList.Count - passIndex; i++)
@@ -77,7 +77,8 @@ namespace Assets.Game.Scripts.Controllers
 
                     Vector3 targetPos = passengerLineStartPoint.position + i * eachPassengerPositionOffset;
 
-                    pass.transform.DOMove(targetPos, .3f).SetEase(Ease.Linear);
+                    pass.animationController.SetRun();
+                    pass.transform.DOMove(targetPos, .3f).SetEase(Ease.Linear).OnComplete(() => pass.animationController.SetIdle());
                 }
 
                 yield return new WaitForSeconds(.5f);
@@ -108,7 +109,8 @@ namespace Assets.Game.Scripts.Controllers
 
                     Vector3 targetPos = passengerLineStartPoint2.position + i * eachPassengerPositionOffset2;
 
-                    pass.transform.DOMove(targetPos, .3f).SetEase(Ease.Linear);
+                    pass.animationController.SetRun();
+                    pass.transform.DOMove(targetPos, .3f).SetEase(Ease.Linear).OnComplete(() => pass.animationController.SetIdle());
                 }
 
                 yield return new WaitForSeconds(.6f);
@@ -116,6 +118,8 @@ namespace Assets.Game.Scripts.Controllers
 
             PlayerSignals.Instance.onSetNextTarget.Invoke();
         }
+
+
     }
 
     [Serializable]
@@ -126,6 +130,7 @@ namespace Assets.Game.Scripts.Controllers
         public bool join;
         public bool adaptive;
         public bool lookRotation;
+        public bool isRunning;
         public UnityEvent<PassengerMovementController> itinialAction;
     }
 }

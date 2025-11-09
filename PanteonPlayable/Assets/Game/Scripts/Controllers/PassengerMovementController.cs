@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.ShaderData;
 
 namespace Assets.Game.Scripts.Controllers
 {
@@ -12,6 +13,7 @@ namespace Assets.Game.Scripts.Controllers
         public List<PhasePoint> phasePoints;
         public PassengerManager passengerManager;
         public Transform baggage;
+        public PassengerAnimationController animationController;
 
         int phaseNumber = -1;
 
@@ -31,6 +33,14 @@ namespace Assets.Game.Scripts.Controllers
             {
                 Vector3 newPos = passengerManager.PassengerOffsetWithoutBaggage(this);
                 positions[positions.Count - 1] += newPos;
+            }
+            if (phasePoint.isRunning)
+            {
+                animationController.SetRun();
+            }
+            else
+            {
+                animationController.SetIdle();
             }
 
             phasePoint.itinialAction?.Invoke(this);
@@ -54,10 +64,16 @@ namespace Assets.Game.Scripts.Controllers
                 yield return null;
             }
 
+
             if (phasePoints[phaseNumber].join)
             {
                 Move();
             }
+            else
+            {
+                animationController.SetIdle();
+            }
+
             if (phaseNumber == phasePoints.Count - 1)
             {
                 gameObject.SetActive(false);
