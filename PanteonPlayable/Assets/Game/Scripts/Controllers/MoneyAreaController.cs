@@ -72,16 +72,16 @@ namespace Assets.Game.Scripts.Controllers
             }
         }
 
-        public void OnTriggeredByPlayer(Transform triggerController)
+        public void OnTriggeredByPlayer()
         {
             if (_isTriggeredByPlayer) return;
 
             _isTriggeredByPlayer = true;
 
-            StartCoroutine(MoveMoniesToPlayer(triggerController));
+            StartCoroutine(MoveMoniesToPlayer());
         }
 
-        private IEnumerator MoveMoniesToPlayer(Transform triggerController)
+        private IEnumerator MoveMoniesToPlayer()
         {
             WaitForSeconds waitSec = new WaitForSeconds(.05f);
 
@@ -101,7 +101,7 @@ namespace Assets.Game.Scripts.Controllers
 
                         if (i1 == monies.Count - 1)
                         {
-                            triggerController.gameObject.SetActive(false);
+                            PlayerSignals.Instance.onSetNextTarget.Invoke();
                         }
                     });
                 money.transform.DOScale(money.transform.localScale / 2, moneyMovingToPlayerDuration / 2).SetDelay(moneyMovingToPlayerDuration / 2);

@@ -1,4 +1,5 @@
-﻿using Assets.Game.Scripts.Signals;
+﻿using Assets.Game.Scripts.Handlers;
+using Assets.Game.Scripts.Signals;
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,7 @@ namespace Assets.Game.Scripts.Managers
         [SerializeField] private Transform baggagePoint;
         [SerializeField] private Vector3 baggageOffset;
         [SerializeField] private List<Transform> baggages = new List<Transform>();
-
-        private Transform _initialParent;
-
-        private void Start()
-        {
-            _initialParent = transform.parent;
-        }
+        [SerializeField] private PlayerNavigatorController navigatorController;
 
         private void OnEnable()
         {
@@ -31,6 +26,8 @@ namespace Assets.Game.Scripts.Managers
             PlayerSignals.Instance.onAddBaggage += OnAddBaggage;
             PlayerSignals.Instance.onGetAllBaggages += OnGetAllBaggages;
             PlayerSignals.Instance.onGetPlayer += () => transform;
+            PlayerSignals.Instance.onSetNextTarget += navigatorController.SetNextTarget;
+            PlayerSignals.Instance.onClearTarget += navigatorController.ClearTarget;
         }
 
         private Vector3 OnGetPlayerMoneyPoint()

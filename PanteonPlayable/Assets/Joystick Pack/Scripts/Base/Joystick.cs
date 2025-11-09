@@ -1,4 +1,5 @@
 ﻿using Assets.Game.Scripts.Signals;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -61,7 +62,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     private Vector2 OnGetInput()
     {
         if (!isInputEnable) return Vector2.zero;
-        
+
         return Direction;
     }
     private void OnDisable()

@@ -21,11 +21,18 @@ public class PaintableWall : MonoBehaviour
     private void OnEnable()
     {
         PaintSignals.Instance.onSetPaintColor += SetPaintColor;
+        PlayableSignals.Instance.onGoToStore += OnGoToStore;
+    }
+
+    private void OnGoToStore()
+    {
+        enabled = false;
     }
 
     private void OnDisable()
     {
         PaintSignals.Instance.onSetPaintColor -= SetPaintColor;
+        PlayableSignals.Instance.onGoToStore -= OnGoToStore;
     }
 
     void Start()
@@ -79,9 +86,7 @@ public class PaintableWall : MonoBehaviour
                 if (dist < radius)
                 {
                     int index = py * maskResolution + px;
-                    Color current = maskPixels[index];
 
-                    // Mesafe bazlı güç kaybı kaldırıldı
                     Color newColor = paintColor;
                     newColor.a = 1f;
 
@@ -99,6 +104,11 @@ public class PaintableWall : MonoBehaviour
 
         float percent = (float)paintedPixels.Count / maskPixels.Length * 100f;
         PaintSignals.Instance.onSetPaintPercent.Invoke($"{(int)percent}%");
+
+        if (percent >= 100)
+        {
+            PlayableSignals.Instance.onGoToStore.Invoke();
+        }
     }
 
 

@@ -51,17 +51,17 @@ namespace Assets.Game.Scripts.Controllers
             PassengerSignals.Instance.onGetPassengerCount -= () => passengerCount;
         }
 
-        public void TriggerEnterWithBaggage(Transform triggerController)
+        public void TriggerEnterWithBaggage()
         {
             InputSignals.Instance.onDeactivateInput.Invoke();
-            StartCoroutine(IMoveTheLineOfPassengersWithBaggage(triggerController));
+            StartCoroutine(IMoveTheLineOfPassengersWithBaggage());
         }
         public void TriggerExit()
         {
             InputSignals.Instance.onActivateInput.Invoke();
         }
 
-        public IEnumerator IMoveTheLineOfPassengersWithBaggage(Transform triggerController)
+        public IEnumerator IMoveTheLineOfPassengersWithBaggage()
         {
             int passIndex = 0;
             while (passIndex < _passengerList.Count)
@@ -83,16 +83,16 @@ namespace Assets.Game.Scripts.Controllers
                 yield return new WaitForSeconds(.5f);
             }
 
-            triggerController.gameObject.SetActive(false);
+            PlayerSignals.Instance.onSetNextTarget.Invoke();
         }
 
-        public void MoveTheLineOfPassengersWithoutBaggage(Transform triggerController)
+        public void MoveTheLineOfPassengersWithoutBaggage()
         {
             InputSignals.Instance.onDeactivateInput.Invoke();
-            StartCoroutine(IMoveTheLineOfPassengersWithoutBaggage(triggerController));
+            StartCoroutine(IMoveTheLineOfPassengersWithoutBaggage());
         }
 
-        public IEnumerator IMoveTheLineOfPassengersWithoutBaggage(Transform triggerController)
+        public IEnumerator IMoveTheLineOfPassengersWithoutBaggage()
         {
             int passIndex = 0;
             while (passIndex < _passengerList.Count)
@@ -114,7 +114,7 @@ namespace Assets.Game.Scripts.Controllers
                 yield return new WaitForSeconds(.6f);
             }
 
-            triggerController.gameObject.SetActive(false);
+            PlayerSignals.Instance.onSetNextTarget.Invoke();
         }
     }
 

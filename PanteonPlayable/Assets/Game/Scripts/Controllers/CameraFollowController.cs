@@ -54,6 +54,7 @@ namespace Assets.Game.Scripts.Controllers
             {
                 InputSignals.Instance.onActivateInput.Invoke();
                 UnlockCamFollow();
+                PlayerSignals.Instance.onSetNextTarget.Invoke();
             });
             transform.DORotate(lastRotationAngles, moveToTargetDuration).SetEase(Ease.Linear);
         }

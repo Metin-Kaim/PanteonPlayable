@@ -22,6 +22,12 @@ namespace Assets.Game.Scripts.Handlers
             transform.DOScale(transform.localScale * scaleMultiplier, animationDuration).SetEase(Ease.OutBack);
             spriteRenderer.DOColor(openingColor, animationDuration).SetEase(Ease.Linear);
         }
+        public void OpenArea(float delay = 0)
+        {
+            transform.DOScale(transform.localScale * scaleMultiplier, animationDuration).SetEase(Ease.OutBack).SetDelay(delay);
+            spriteRenderer.DOColor(openingColor, animationDuration).SetEase(Ease.Linear).SetDelay(delay);
+        }
+
 
         public void CloseArea()
         {

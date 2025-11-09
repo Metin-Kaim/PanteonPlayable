@@ -18,6 +18,8 @@ namespace Assets.Game.Scripts.Signals
         public Func<List<Transform>> onGetAllBaggages;
         public Func<Vector3> onGetPlayerMoneyPosition;
         public Func<Transform> onGetPlayer;
+        public UnityAction onSetNextTarget;
+        public UnityAction onClearTarget;
 
         private void Awake()
         {

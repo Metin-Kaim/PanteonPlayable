@@ -26,6 +26,7 @@ namespace Assets.Game.Scripts.Handlers
         [SerializeField] private float delayedOpeningDuration;
         [SerializeField] private bool cameraBackToBase;
         [SerializeField] private bool isOpened;
+        [SerializeField] private GameObject placeArrow;
 
         private short _currentCurrencyCost;
         private short _fillCycleCount = 0;
@@ -40,7 +41,7 @@ namespace Assets.Game.Scripts.Handlers
         {
             if (isOpened) return;
 
-            if (currencyCost >= currency)
+            if (currencyCost <= currency)
             {
                 OpenObject();
             }
@@ -54,6 +55,8 @@ namespace Assets.Game.Scripts.Handlers
 
             DOTween.To(() => canvasGroup.alpha, value => canvasGroup.alpha = value, 1, .3f).SetEase(Ease.Linear);
             transform.DOScale(initScale * 1.1f, 0.3f).SetEase(Ease.OutBack);
+
+            placeArrow.SetActive(true);
         }
 
         private void OnDisable()
@@ -98,19 +101,14 @@ namespace Assets.Game.Scripts.Handlers
             }
         }
 
-        public void TriggerEnter(Transform triggerController)
+        public void TriggerEnter()
         {
             InputSignals.Instance.onDeactivateInput.Invoke();
 
-            StartCoroutine(FillTheBar(triggerController));
+            StartCoroutine(FillTheBar());
         }
 
-        public void TriggerExit()
-        {
-            OnBarFilled();
-        }
-
-        private IEnumerator FillTheBar(Transform triggerController)
+        private IEnumerator FillTheBar()
         {
             while (fillBar.fillAmount < 1f)
             {
@@ -130,7 +128,7 @@ namespace Assets.Game.Scripts.Handlers
                 yield return new WaitForSeconds(fillDuration);
             }
 
-            triggerController.gameObject.SetActive(false);
+            OnBarFilled();
         }
 
         private void OnBarFilled()

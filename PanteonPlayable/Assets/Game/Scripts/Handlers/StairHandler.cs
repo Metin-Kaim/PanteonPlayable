@@ -21,6 +21,8 @@ namespace Assets.Game.Scripts.Handlers
         [Header("RunTime Variables")]
         [SerializeField] private List<GameObject> stairSteps;
 
+        private List<Vector3> initialStepPositions = new List<Vector3>();
+
         private void Start()
         {
             stairSteps = new List<GameObject>();
@@ -50,11 +52,18 @@ namespace Assets.Game.Scripts.Handlers
             stairSteps.RemoveAt(stairSteps.Count - 2);
             stairSteps.RemoveAt(0);
 
+            foreach (var step in stairSteps)
+            {
+                initialStepPositions.Add(step.transform.localPosition);
+            }
+
             StartCoroutine(MoveSteps());
         }
 
         private IEnumerator MoveSteps()
         {
+            byte moveStep = 0;
+
             while (true)
             {
                 foreach (var step in stairSteps)
@@ -62,15 +71,26 @@ namespace Assets.Game.Scripts.Handlers
                     Vector3 direction = (endPoint.localPosition - step.transform.localPosition).normalized;
                     step.transform.localPosition += moveSpeed * Time.deltaTime * direction;
 
-                    if (Mathf.Abs(Vector3.Distance(step.transform.localPosition, endPoint.localPosition)) < 0.05f)
+                    if (Mathf.Abs(Vector3.Distance(step.transform.localPosition, endPoint.localPosition)) < 0.02f)
                     {
                         step.transform.localPosition = startPoint.localPosition;
+                        moveStep++;
                     }
                 }
+
+                if (moveStep == stairSteps.Count)
+                {
+                    for (int i = 0; i < moveStep; i++)
+                    {
+                        stairSteps[i].transform.localPosition = initialStepPositions[i];
+                    }
+                    moveStep = 0;
+                }
+
                 yield return null;
             }
         }
-        private IEnumerator MoveThePlayerToEndPoint(Transform triggerController)
+        private IEnumerator MoveThePlayerToEndPoint()
         {
             InputSignals.Instance.onDeactivateInput.Invoke();
             PlayerSignals.Instance.onClosePlayerCollider.Invoke();
@@ -90,21 +110,21 @@ namespace Assets.Game.Scripts.Handlers
             {
                 Vector3 selectedPos = stairPath[pathIndex];
 
-                Vector3 direction = (selectedPos - player.transform.position).normalized;
-                player.transform.position += moveSpeed * Time.deltaTime * direction;
+                Vector3 direction = (selectedPos - player.position).normalized;
+                player.position += moveSpeed * Time.deltaTime * direction;
 
                 if (direction != Vector3.zero)
                 {
                     Vector3 flatDir = new Vector3(direction.x, 0, direction.z); // sadece yatay eksende
                     Quaternion targetRot = Quaternion.LookRotation(flatDir);
-                    player.transform.rotation = Quaternion.Slerp(
-                        player.transform.rotation,
+                    player.rotation = Quaternion.Slerp(
+                        player.rotation,
                         targetRot,
                         Time.deltaTime * 10f // dönüş hızı
                     );
                 }
 
-                if (Mathf.Abs(Vector3.Distance(player.transform.position, selectedPos)) < 0.05f)
+                if (Mathf.Abs(Vector3.Distance(player.position, selectedPos)) < 0.05f)
                 {
                     pathIndex++;
                 }
@@ -113,7 +133,7 @@ namespace Assets.Game.Scripts.Handlers
                 yield return null;
             }
             ReleaseThePlayer();
-            triggerController.gameObject.SetActive(false);
+            PlayerSignals.Instance.onSetNextTarget.Invoke();
         }
 
         public void ReleaseThePlayer()
@@ -122,34 +142,9 @@ namespace Assets.Game.Scripts.Handlers
             InputSignals.Instance.onActivateInput.Invoke();
         }
 
-        public void TriggerEnter(Transform triggerController)
+        public void TriggerEnter()
         {
-            StartCoroutine(MoveThePlayerToEndPoint(triggerController));
+            StartCoroutine(MoveThePlayerToEndPoint());
         }
-
-        public void TriggerExit()
-        { }
-
-        //public void MovePassengerToUp(Transform target)
-        //{
-        //    StartCoroutine(IMovePassengerToUp(target));
-        //}
-
-        //public IEnumerator IMovePassengerToUp(Transform target)
-        //{
-        //    while (true)
-        //    {
-        //        target.transform.position += moveSpeed * Time.deltaTime * (endPoint.position - startPoint.position).direction;
-
-        //        float totalDistance = Vector3.Distance(startPoint.position, endPoint.position);
-        //        float currentDistance = Vector3.Distance(startPoint.position, target.transform.position);
-        //        if (currentDistance > totalDistance)
-        //        {
-        //            //target.GetComponent<PassengerMovementController>().Move();
-        //            yield break;
-        //        }
-        //        yield return null;
-        //    }
-        //}
     }
 }
