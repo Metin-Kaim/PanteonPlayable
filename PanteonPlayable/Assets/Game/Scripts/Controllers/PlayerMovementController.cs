@@ -7,6 +7,7 @@ namespace Assets.Game.Scripts.Controllers
     {
         [SerializeField] private float moveSpeed = 5f;
         [SerializeField] private float rotationSpeed = 10f;
+        [SerializeField] private ParticleSystem particle;
 
         Rigidbody _rb;
         bool _isMoving;
@@ -26,6 +27,7 @@ namespace Assets.Game.Scripts.Controllers
                 {
                     _isMoving = true;
                     PlayerSignals.Instance.onSetRunAnimation.Invoke();
+                    particle.Play();
                 }
 
                 Vector3 inputDir = new Vector3(joystickDirection.y, 0, -joystickDirection.x);
@@ -43,6 +45,7 @@ namespace Assets.Game.Scripts.Controllers
                 {
                     _isMoving = false;
                     PlayerSignals.Instance.onSetIdleAnimation.Invoke();
+                    particle.Stop();
                 }
 
                 _rb.velocity = Vector3.zero;

@@ -1,7 +1,5 @@
 ﻿using Assets.Game.Scripts.Handlers;
 using Assets.Game.Scripts.Signals;
-using DG.Tweening;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
