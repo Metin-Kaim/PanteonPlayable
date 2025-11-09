@@ -15,19 +15,6 @@ namespace Assets.Game.Scripts.Handlers
         private byte _targetIndex;
         private Transform _target;
 
-        public void SetNextTarget()
-        {
-            targets[_targetIndex].SetActive(false);
-            _targetIndex++;
-            _target = targets[_targetIndex].transform;
-            _target.gameObject.SetActive(true);
-        }
-
-        public void ClearTarget()
-        {
-            _target = null;
-            navigateArrow.SetActive(false);
-        }
 
         private void Update()
         {
@@ -45,6 +32,30 @@ namespace Assets.Game.Scripts.Handlers
                 Quaternion targetRot = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, speed * Time.deltaTime);
             }
+        }
+
+        public void SetNextTarget()
+        {
+            targets[_targetIndex].SetActive(false);
+            _targetIndex++;
+
+            SetTarget();
+        }
+
+        public void CloseNavigation()
+        {
+            _target = null;
+            navigateArrow.SetActive(false);
+        }
+        public void OpenNavigation()
+        {
+            SetTarget();
+        }
+
+        private void SetTarget()
+        {
+            _target = targets[_targetIndex].transform;
+            _target.gameObject.SetActive(true);
         }
     }
 }

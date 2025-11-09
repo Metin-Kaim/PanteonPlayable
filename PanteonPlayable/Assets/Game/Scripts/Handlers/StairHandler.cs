@@ -17,6 +17,7 @@ namespace Assets.Game.Scripts.Handlers
         [SerializeField] private Transform endPoint;
         [SerializeField] private byte stepCount;
         [SerializeField] private float moveSpeed = 1;
+        [SerializeField] private bool isDummy;
 
         [Header("RunTime Variables")]
         [SerializeField] private List<GameObject> stairSteps;
@@ -90,7 +91,7 @@ namespace Assets.Game.Scripts.Handlers
                 yield return null;
             }
         }
-        private IEnumerator MoveThePlayerToEndPoint()
+        private IEnumerator MoveThePlayerToEndPoint(Transform triggerController)
         {
             InputSignals.Instance.onDeactivateInput.Invoke();
             PlayerSignals.Instance.onClosePlayerCollider.Invoke();
@@ -133,7 +134,16 @@ namespace Assets.Game.Scripts.Handlers
                 yield return null;
             }
             ReleaseThePlayer();
-            PlayerSignals.Instance.onSetNextTarget.Invoke();
+            triggerController.gameObject.SetActive(false);
+            if (!isDummy)
+            {
+                isDummy = true;
+                PlayerSignals.Instance.onSetNextTarget.Invoke();
+            }
+            else
+            {
+                PlayerSignals.Instance.onOpenNavigation.Invoke();
+            }
         }
 
         public void ReleaseThePlayer()
@@ -142,9 +152,9 @@ namespace Assets.Game.Scripts.Handlers
             InputSignals.Instance.onActivateInput.Invoke();
         }
 
-        public void TriggerEnter()
+        public void TriggerEnter(Transform triggerController)
         {
-            StartCoroutine(MoveThePlayerToEndPoint());
+            StartCoroutine(MoveThePlayerToEndPoint(triggerController));
         }
     }
 }

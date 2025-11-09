@@ -27,7 +27,8 @@ namespace Assets.Game.Scripts.Managers
             PlayerSignals.Instance.onGetAllBaggages += OnGetAllBaggages;
             PlayerSignals.Instance.onGetPlayer += () => transform;
             PlayerSignals.Instance.onSetNextTarget += navigatorController.SetNextTarget;
-            PlayerSignals.Instance.onClearTarget += navigatorController.ClearTarget;
+            PlayerSignals.Instance.onCloseNavigation += navigatorController.CloseNavigation;
+            PlayerSignals.Instance.onOpenNavigation += navigatorController.OpenNavigation;
         }
 
         private Vector3 OnGetPlayerMoneyPoint()

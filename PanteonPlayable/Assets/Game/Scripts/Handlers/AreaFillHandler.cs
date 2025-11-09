@@ -11,6 +11,7 @@ namespace Assets.Game.Scripts.Handlers
         [SerializeField] private float animationDuration;
 
         private Vector3 initScale;
+        private bool isOpened;
 
         private void Start()
         {
@@ -19,11 +20,17 @@ namespace Assets.Game.Scripts.Handlers
 
         public void OpenArea()
         {
+            if (isOpened) return;
+            isOpened = true;
+
             transform.DOScale(transform.localScale * scaleMultiplier, animationDuration).SetEase(Ease.OutBack);
             spriteRenderer.DOColor(openingColor, animationDuration).SetEase(Ease.Linear);
         }
         public void OpenArea(float delay = 0)
         {
+            if (isOpened) return;
+            isOpened = true;
+
             transform.DOScale(transform.localScale * scaleMultiplier, animationDuration).SetEase(Ease.OutBack).SetDelay(delay);
             spriteRenderer.DOColor(openingColor, animationDuration).SetEase(Ease.Linear).SetDelay(delay);
         }
@@ -31,6 +38,9 @@ namespace Assets.Game.Scripts.Handlers
 
         public void CloseArea()
         {
+            if (!isOpened) return;
+            isOpened = false;
+
             transform.DOScale(initScale, animationDuration).SetEase(Ease.OutBack);
             spriteRenderer.DOColor(Color.white, animationDuration).SetEase(Ease.Linear);
         }

@@ -19,7 +19,10 @@ namespace Assets.Game.Scripts.Signals
         public Func<Vector3> onGetPlayerMoneyPosition;
         public Func<Transform> onGetPlayer;
         public UnityAction onSetNextTarget;
-        public UnityAction onClearTarget;
+        public UnityAction onCloseNavigation;
+        public UnityAction onOpenNavigation;
+        public UnityAction onSetRunAnimation;
+        public UnityAction onSetIdleAnimation;
 
         private void Awake()
         {

@@ -9,6 +9,7 @@ namespace Assets.Game.Scripts.Controllers
         [SerializeField] private float rotationSpeed = 10f;
 
         Rigidbody _rb;
+        bool _isMoving;
 
         private void Awake()
         {
@@ -21,6 +22,12 @@ namespace Assets.Game.Scripts.Controllers
 
             if (joystickDirection != Vector2.zero)
             {
+                if (!_isMoving)
+                {
+                    _isMoving = true;
+                    PlayerSignals.Instance.onSetRunAnimation.Invoke();
+                }
+
                 Vector3 inputDir = new Vector3(joystickDirection.y, 0, -joystickDirection.x);
 
                 Quaternion targetRotation = Quaternion.LookRotation(inputDir);
@@ -32,6 +39,12 @@ namespace Assets.Game.Scripts.Controllers
             }
             else
             {
+                if (_isMoving)
+                {
+                    _isMoving = false;
+                    PlayerSignals.Instance.onSetIdleAnimation.Invoke();
+                }
+
                 _rb.velocity = Vector3.zero;
                 _rb.angularVelocity = Vector3.zero;
             }

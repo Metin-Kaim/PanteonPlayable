@@ -1424,14 +1424,6 @@
                 "excluded": true
             },
             {
-                "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.Avatar.TOSPair",
-                "excluded": true
-            },
-            {
-                "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.TransformMaskElement",
-                "excluded": true
-            },
-            {
                 "name": "Luna.Unity.DTO.UnityEngine.Assets.ProjectSettings.Physics2DSettings",
                 "excluded": true
             },
@@ -1476,14 +1468,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEditor.Animations.AnimatorCondition",
-                "excluded": true
-            },
-            {
-                "name": "UnityEditor.Animations.AnimatorTransitionBase",
-                "excluded": true
-            },
-            {
                 "name": "UnityEditor.Animations.ChildMotion",
                 "excluded": true
             },
@@ -1501,10 +1485,6 @@
             },
             {
                 "name": "UnityEngine.AnimatorClipInfo",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.AnimatorTransitionInfo",
                 "excluded": true
             },
             {
@@ -1948,19 +1928,11 @@
                 "excluded": true
             },
             {
-                "name": "UnityEditor.Animations.AnimatorStateTransition",
-                "excluded": true
-            },
-            {
                 "name": "UnityEditor.Animations.AnimatorTransition",
                 "excluded": true
             },
             {
                 "name": "UnityEngine.Audio.AudioMixer",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.AnimatorTransitionInfo.NoTransitionInfo",
                 "excluded": true
             },
             {
@@ -1973,14 +1945,6 @@
             },
             {
                 "name": "UnityEngine.Audio.AudioMixerSnapshot",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.Avatar",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.AvatarMask",
                 "excluded": true
             },
             {
@@ -2396,10 +2360,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.SkinnedMeshRenderer",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.AI.NavMeshAgent",
                 "excluded": true
             },
@@ -2685,7 +2645,7 @@
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.AnimatorCondition",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.AnimatorControllerLayer",
@@ -2693,7 +2653,7 @@
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.AnimatorControllerParameter",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.AnimatorState",
@@ -2705,7 +2665,7 @@
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.AnimatorTransitionBase",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.Motion",
@@ -3365,7 +3325,7 @@
             },
             {
                 "name": "UnityEditor.Animations.AnimatorConditionMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEditor.Animations.AnimatorLayerBlendingMode",
@@ -3525,7 +3485,7 @@
             },
             {
                 "name": "UnityEngine.AnimatorControllerParameterType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.AnimatorCullingMode",
@@ -3621,7 +3581,7 @@
             },
             {
                 "name": "UnityEngine.AvatarMaskBodyPart",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.AvatarTarget",
@@ -6001,7 +5961,7 @@
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.AnimatorStateTransition",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.AnimatorTransition",
@@ -6009,7 +5969,7 @@
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.Avatar",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.AvatarMask",
@@ -28510,10 +28470,6 @@
                     {
                         "name": "TriggerEnter",
                         "excluded": false
-                    },
-                    {
-                        "name": "TriggerExit",
-                        "excluded": false
                     }
                 ]
             },
@@ -32110,6 +32066,10 @@
                     {
                         "name": "SetBrushSize",
                         "excluded": false
+                    },
+                    {
+                        "name": "OnGoToStore",
+                        "excluded": false
                     }
                 ]
             },
@@ -33377,7 +33337,7 @@
                     },
                     {
                         "name": "PullOrphanEvents",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Sample",
@@ -33465,7 +33425,7 @@
                 "instanceMethods": [
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -33585,7 +33545,7 @@
                     },
                     {
                         "name": "OnStateExit",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -33933,7 +33893,7 @@
                     },
                     {
                         "name": "SetTrigger$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetTrigger",
@@ -33985,7 +33945,7 @@
                     },
                     {
                         "name": "SetBool$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetBool",
@@ -34061,7 +34021,7 @@
                     },
                     {
                         "name": "OnMaskChanged",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Play$4",
@@ -34583,6 +34543,412 @@
                     },
                     {
                         "name": "SetClass",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.Avatar.TOSPair",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Luna.Unity.DTO.UnityEngine.Animation.Mecanim.TransformMaskElement",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.Avatar",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "humanDescription#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMuscleMinMax",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParameter",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetAxisLength",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetPreRotation",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetPostRotation",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetZYPostQ",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetZYRoll",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetLimitSign",
+                        "excluded": true
+                    },
+                    {
+                        "name": "public_GetAxisLength",
+                        "excluded": true
+                    },
+                    {
+                        "name": "public_GetPreRotation",
+                        "excluded": true
+                    },
+                    {
+                        "name": "public_GetPostRotation",
+                        "excluded": true
+                    },
+                    {
+                        "name": "public_GetZYPostQ",
+                        "excluded": true
+                    },
+                    {
+                        "name": "public_GetZYRoll",
+                        "excluded": true
+                    },
+                    {
+                        "name": "public_GetLimitSign",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.AvatarMask",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Mapping#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Mask#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "humanoidBodyPartCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "hasFeetIK#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "transformCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "transformCount#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsEmpty",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetHumanoidBodyPartActive",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetHumanoidBodyPartActive",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AddTransformPath",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RemoveTransformPath",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTransformPath",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTransformPath",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTransformActive",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTransformActive",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetBodyPart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetBodyPart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTransformCount",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTransformCount",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTransformWeight",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTransformWeight",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AddTransformPathInternal",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RemoveTransformPathInternal",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CalculateTransformPath",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AppendTransformPath",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ValidateBodyPartIndex",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ValidateTransformIndex",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CommitChanges",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEditor.Animations.AnimatorCondition",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TryMatchingParameters",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEditor.Animations.AnimatorTransitionBase",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEditor.Animations.AnimatorStateTransition",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CheckTransitionConditions",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CheckTransitionExitTimeCondition",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.SkinnedMeshRenderer",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "m_BlendShapeWeights#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "m_BlendShapeWeights#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMesh#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMesh#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "rootBone#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "rootBone#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "bones#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "bones#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "blendShape#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetBlendShapeWeight",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetBlendShapeWeight",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Assets.Game.Scripts.Controllers.PlayerAnimationController",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetRun",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetIdle",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetCarry",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.AnimatorTransitionInfo",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FromAlpha#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ToAlpha#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Complete#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Pending#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddTime",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsName",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.AnimatorTransitionInfo.NoTransitionInfo",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "IsName",
                         "excluded": true
                     }
                 ]
