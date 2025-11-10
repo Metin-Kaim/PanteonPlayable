@@ -1,4 +1,5 @@
 using Assets.Game.Scripts.Signals;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.Controllers
@@ -51,6 +52,12 @@ namespace Assets.Game.Scripts.Controllers
                 _rb.velocity = Vector3.zero;
                 _rb.angularVelocity = Vector3.zero;
             }
+        }
+
+        public void MoveThePlayerToTargetPoint(Transform target)
+        {
+            transform.DOMove(target.position, .5f).SetEase(Ease.Linear);
+            transform.DORotate(target.rotation.eulerAngles, 0.5f).SetEase(Ease.Linear);
         }
     }
 }

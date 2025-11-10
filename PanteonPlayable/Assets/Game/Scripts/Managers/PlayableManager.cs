@@ -25,7 +25,7 @@ namespace Assets.Game.Scripts.Managers
 
             InputSignals.Instance.onDeactivateInput.Invoke();
             LifeCycle.GameEnded();
-            Playable.InstallFullGame();
+            //Playable.InstallFullGame();
             print("Store Opened");
         }
     }

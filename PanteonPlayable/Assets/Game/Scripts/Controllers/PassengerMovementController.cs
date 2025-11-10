@@ -26,8 +26,10 @@ namespace Assets.Game.Scripts.Controllers
         public IEnumerator IMove(PhasePoint phasePoint)
         {
             int phasePointIndex = 0;
+            List<Vector3> positions = null;
 
-            List<Vector3> positions = phasePoint.points.Select(p => p.position).ToList();
+            if (phasePoint.points.Count > 0)
+                positions = phasePoint.points.Select(p => p.position).ToList();
 
             if (phasePoint.adaptive)
             {
@@ -76,6 +78,7 @@ namespace Assets.Game.Scripts.Controllers
 
             if (phaseNumber == phasePoints.Count - 1)
             {
+                PlaneSignals.Instance.onIncreasePassengerCount.Invoke();
                 gameObject.SetActive(false);
             }
         }

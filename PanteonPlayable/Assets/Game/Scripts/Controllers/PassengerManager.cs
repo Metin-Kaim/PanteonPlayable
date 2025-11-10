@@ -38,6 +38,15 @@ namespace Assets.Game.Scripts.Controllers
                 PassengerMovementController passenger = Instantiate(passengerPrefab, passengerLineStartPoint.position + i * eachPassengerPositionOffset, Quaternion.Euler(0, 90, 0), transform);
                 passenger.phasePoints = new List<PhasePoint>(phasePoints);
                 passenger.passengerManager = this;
+                if (UnityEngine.Random.value > 0.4f)
+                {
+                    SkinnedMeshRenderer skinnedMeshRenderer = passenger.GetComponentInChildren<SkinnedMeshRenderer>();
+                    Material[] materials = skinnedMeshRenderer.materials;
+                    materials[1].mainTextureOffset = new Vector2(UnityEngine.Random.Range(0, 5) / 10f, UnityEngine.Random.Range(0, 5) / 10f);
+                    materials[2].mainTextureOffset = new Vector2(UnityEngine.Random.Range(0, 5) / 10f, UnityEngine.Random.Range(0, 5) / 10f);
+                    passenger.baggage.GetComponent<MeshRenderer>().material.mainTextureOffset = new Vector2(UnityEngine.Random.Range(0, 5) / 10f, UnityEngine.Random.Range(0, 5) / 10f);
+                    skinnedMeshRenderer.materials = materials;
+                }
                 _passengerList.Add(passenger);
             }
         }

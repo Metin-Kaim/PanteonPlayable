@@ -14,6 +14,7 @@ namespace Assets.Game.Scripts.Controllers
         private bool _canFollow = true;
         private Vector3 lastPosition;
         private Vector3 lastRotationAngles;
+        private float lastOrthoSize;
         
 
         private void OnEnable()
@@ -43,6 +44,7 @@ namespace Assets.Game.Scripts.Controllers
 
             lastPosition = transform.position;
             lastRotationAngles = transform.rotation.eulerAngles;
+            lastOrthoSize = cam.orthographicSize;
 
             transform.DOMove(camInfos.transform.position, moveToTargetDuration).SetEase(Ease.Linear);
             transform.DORotate(camInfos.transform.rotation.eulerAngles, moveToTargetDuration).SetEase(Ease.Linear);
@@ -57,6 +59,7 @@ namespace Assets.Game.Scripts.Controllers
                 PlayerSignals.Instance.onSetNextTarget.Invoke();
             });
             transform.DORotate(lastRotationAngles, moveToTargetDuration).SetEase(Ease.Linear);
+            cam.DOOrthoSize(lastOrthoSize, moveToTargetDuration).SetEase(Ease.Linear);
         }
 
         public void LockCamFollow()
