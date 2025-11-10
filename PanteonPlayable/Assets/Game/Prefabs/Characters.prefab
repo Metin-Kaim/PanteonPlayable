@@ -73,11 +73,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1497973572473538, guid: a52d1e8651b389b42a9c3c9421dc60d0, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52043660086dc194d8413d076f59b2df, type: 2}
     - target: {fileID: 919132149155446097, guid: a52d1e8651b389b42a9c3c9421dc60d0,
         type: 3}
       propertyPath: m_Name
       value: Characters
       objectReference: {fileID: 0}
+    - target: {fileID: 3280237577493453809, guid: a52d1e8651b389b42a9c3c9421dc60d0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52043660086dc194d8413d076f59b2df, type: 2}
     - target: {fileID: 7985974569186381559, guid: a52d1e8651b389b42a9c3c9421dc60d0,
         type: 3}
       propertyPath: m_IsActive

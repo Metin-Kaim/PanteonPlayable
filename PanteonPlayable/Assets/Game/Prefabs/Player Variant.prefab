@@ -327,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   rotationSpeed: 20
+  particle: {fileID: 0}
 --- !u!54 &453585584093754321
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -457,6 +458,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2933139716659438605, guid: d7f4f0feff9f6e0439eee18781b05a71,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52043660086dc194d8413d076f59b2df, type: 2}
     - target: {fileID: -2770666803903516498, guid: d7f4f0feff9f6e0439eee18781b05a71,
         type: 3}
       propertyPath: m_LocalRotation.x
